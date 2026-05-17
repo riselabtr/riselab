@@ -482,119 +482,124 @@ input[type=number]{-moz-appearance:textfield;}
 
 <script>
 /* ── VERİ ── */
+function getIcon(key){
+  if(window.ICONS && window.ICONS[key]) return window.ICONS[key];
+  return '';
+}
+
 const TIERS = {
-  rare:{label:'Rare',max:3,acc:'Rare Accessory',shard:'Rare Accessory Shard',scroll:'Rare Accessory Upgrade Scroll',shardIcon:window.ICONS["rare_shard"],scrollIcon:window.ICONS["rare_scroll"],
+  rare:{label:'Rare',max:3,acc:'Rare Accessory',shard:'Rare Accessory Shard',scroll:'Rare Accessory Upgrade Scroll',shardIcon:'rare_shard',scrollIcon:'rare_scroll',
     steps:[{from:0,to:1,gold:2e6,shard:1,scroll:1},{from:1,to:2,gold:8e6,shard:2,scroll:1},{from:2,to:3,gold:32e6,shard:4,scroll:1}]},
-  epic:{label:'Epic',max:5,acc:'Epic Accessory',shard:'Epic Accessory Shard',scroll:'Epic Accessory Upgrade Scroll',shardIcon:window.ICONS["epic_shard"],scrollIcon:window.ICONS["epic_scroll"],
+  epic:{label:'Epic',max:5,acc:'Epic Accessory',shard:'Epic Accessory Shard',scroll:'Epic Accessory Upgrade Scroll',shardIcon:'epic_shard',scrollIcon:'epic_scroll',
     steps:[{from:0,to:1,gold:10e6,shard:1,scroll:1},{from:1,to:2,gold:40e6,shard:2,scroll:1},{from:2,to:3,gold:100e6,shard:4,scroll:1},{from:3,to:4,gold:200e6,shard:8,scroll:1},{from:4,to:5,gold:300e6,shard:16,scroll:1}]},
-  unique:{label:'Unique',max:5,acc:'Unique Accessory',shard:'Unique Accessory Shard',scroll:'Unique Accessory Upgrade Scroll',shardIcon:window.ICONS["unique_shard"],scrollIcon:window.ICONS["unique_scroll"],
+  unique:{label:'Unique',max:5,acc:'Unique Accessory',shard:'Unique Accessory Shard',scroll:'Unique Accessory Upgrade Scroll',shardIcon:'unique_shard',scrollIcon:'unique_scroll',
     steps:[{from:0,to:1,gold:40e6,shard:1,scroll:1},{from:1,to:2,gold:160e6,shard:2,scroll:1},{from:2,to:3,gold:300e6,shard:4,scroll:1},{from:3,to:4,gold:500e6,shard:8,scroll:1},{from:4,to:5,gold:500e6,shard:8,scroll:1}]}
 };
 const SLOT_ICO={Ring:'💍',Necklace:'📿',Earring:'✨',Belt:'🔶'};
 const SLOT_TR={Ring:'Yüzük',Necklace:'Kolye',Earring:'Küpe',Belt:'Kemer'};
 const ITEMS = [
-  {id:"ear_magus_earring",name:"Magus Earring",tier:"rare",slot:"Earring",icon:window.ICONS["ear_magus_earring"]},
-  {id:"ear_steel_earring",name:"Steel Earring",tier:"rare",slot:"Earring",icon:window.ICONS["ear_steel_earring"]},
-  {id:"ear_swiftness_earring",name:"Swiftness Earring",tier:"rare",slot:"Earring",icon:window.ICONS["ear_swiftness_earring"]},
-  {id:"ear_travellers_earring",name:"Traveller's Earring",tier:"rare",slot:"Earring",icon:window.ICONS["ear_travellers_earring"]},
-  {id:"ear_vitality_earring",name:"Vitality Earring",tier:"rare",slot:"Earring",icon:window.ICONS["ear_vitality_earring"]},
-  {id:"ear_assassin_earring",name:"Assassin Earring",tier:"epic",slot:"Earring",icon:window.ICONS["ear_assassin_earring"]},
-  {id:"ear_brawlers_earring",name:"Brawler's Earring",tier:"epic",slot:"Earring",icon:window.ICONS["ear_brawlers_earring"]},
-  {id:"ear_clerics_earring",name:"Cleric's Earring",tier:"epic",slot:"Earring",icon:window.ICONS["ear_clerics_earring"]},
-  {id:"ear_earring_of_persistence",name:"Earring of Persistence",tier:"epic",slot:"Earring",icon:window.ICONS["ear_earring_of_persistence"]},
-  {id:"ear_holy_priest_earring",name:"Holy Priest Earring",tier:"epic",slot:"Earring",icon:window.ICONS["ear_holy_priest_earring"]},
-  {id:"ear_knights_earring",name:"Knight's Earring",tier:"epic",slot:"Earring",icon:window.ICONS["ear_knights_earring"]},
-  {id:"ear_lifebloom_earring",name:"Lifebloom Earring",tier:"epic",slot:"Earring",icon:window.ICONS["ear_lifebloom_earring"]},
-  {id:"ear_mystic_earring",name:"Mystic Earring",tier:"epic",slot:"Earring",icon:window.ICONS["ear_mystic_earring"]},
-  {id:"ear_obsidian_earring",name:"Obsidian Earring",tier:"epic",slot:"Earring",icon:window.ICONS["ear_obsidian_earring"]},
-  {id:"ear_rangers_earring",name:"Ranger's Earring",tier:"epic",slot:"Earring",icon:window.ICONS["ear_rangers_earring"]},
-  {id:"ear_valiant_earring",name:"Valiant Earring",tier:"epic",slot:"Earring",icon:window.ICONS["ear_valiant_earring"]},
-  {id:"ear_warlocks_earring",name:"Warlock's Earring",tier:"epic",slot:"Earring",icon:window.ICONS["ear_warlocks_earring"]},
-  {id:"ear_blue_dragon_earring",name:"Blue Dragon Earring",tier:"unique",slot:"Earring",icon:window.ICONS["ear_blue_dragon_earring"]},
-  {id:"ear_chaos_earring",name:"Chaos Earring",tier:"unique",slot:"Earring",icon:window.ICONS["ear_chaos_earring"]},
-  {id:"ear_divine_earring",name:"Divine Earring",tier:"unique",slot:"Earring",icon:window.ICONS["ear_divine_earring"]},
-  {id:"ear_earring_of_true_faith",name:"Earring of True Faith",tier:"unique",slot:"Earring",icon:window.ICONS["ear_earring_of_true_faith"]},
-  {id:"ear_spirit_earring",name:"Spirit Earring",tier:"unique",slot:"Earring",icon:window.ICONS["ear_spirit_earring"]},
-  {id:"ear_storm_earring",name:"Storm Earring",tier:"unique",slot:"Earring",icon:window.ICONS["ear_storm_earring"]},
-  {id:"ear_warlord_earring",name:"Warlord Earring",tier:"unique",slot:"Earring",icon:window.ICONS["ear_warlord_earring"]},
-  {id:"ear_willpower_earring",name:"Willpower Earring",tier:"unique",slot:"Earring",icon:window.ICONS["ear_willpower_earring"]},
-  {id:"ring_magus_ring",name:"Magus Ring",tier:"rare",slot:"Ring",icon:window.ICONS["ring_magus_ring"]},
-  {id:"ring_steel_ring",name:"Steel Ring",tier:"rare",slot:"Ring",icon:window.ICONS["ring_steel_ring"]},
-  {id:"ring_swiftness_ring",name:"Swiftness Ring",tier:"rare",slot:"Ring",icon:window.ICONS["ring_swiftness_ring"]},
-  {id:"ring_travellers_ring",name:"Traveller's Ring",tier:"rare",slot:"Ring",icon:window.ICONS["ring_travellers_ring"]},
-  {id:"ring_vitality_ring",name:"Vitality Ring",tier:"rare",slot:"Ring",icon:window.ICONS["ring_vitality_ring"]},
-  {id:"ring_assassin_ring",name:"Assassin Ring",tier:"epic",slot:"Ring",icon:window.ICONS["ring_assassin_ring"]},
-  {id:"ring_black_soul_ring",name:"Black Soul Ring",tier:"epic",slot:"Ring",icon:window.ICONS["ring_black_soul_ring"]},
-  {id:"ring_brawlers_ring",name:"Brawler's Ring",tier:"epic",slot:"Ring",icon:window.ICONS["ring_brawlers_ring"]},
-  {id:"ring_clerics_ring",name:"Cleric's Ring",tier:"epic",slot:"Ring",icon:window.ICONS["ring_clerics_ring"]},
-  {id:"ring_holy_priest_ring",name:"Holy Priest Ring",tier:"epic",slot:"Ring",icon:window.ICONS["ring_holy_priest_ring"]},
-  {id:"ring_knights_ring",name:"Knight's Ring",tier:"epic",slot:"Ring",icon:window.ICONS["ring_knights_ring"]},
-  {id:"ring_lifebloom_ring",name:"Lifebloom Ring",tier:"epic",slot:"Ring",icon:window.ICONS["ring_lifebloom_ring"]},
-  {id:"ring_mystic_ring",name:"Mystic Ring",tier:"epic",slot:"Ring",icon:window.ICONS["ring_mystic_ring"]},
-  {id:"ring_obsidian_ring",name:"Obsidian Ring",tier:"epic",slot:"Ring",icon:window.ICONS["ring_obsidian_ring"]},
-  {id:"ring_rangers_ring",name:"Ranger's Ring",tier:"epic",slot:"Ring",icon:window.ICONS["ring_rangers_ring"]},
-  {id:"ring_valiant_ring",name:"Valiant Ring",tier:"epic",slot:"Ring",icon:window.ICONS["ring_valiant_ring"]},
-  {id:"ring_warlocks_ring",name:"Warlock's Ring",tier:"epic",slot:"Ring",icon:window.ICONS["ring_warlocks_ring"]},
-  {id:"ring_blue_dragon_ring",name:"Blue Dragon Ring",tier:"unique",slot:"Ring",icon:window.ICONS["ring_blue_dragon_ring"]},
-  {id:"ring_chaos_ring",name:"Chaos Ring",tier:"unique",slot:"Ring",icon:window.ICONS["ring_chaos_ring"]},
-  {id:"ring_divine_ring",name:"Divine Ring",tier:"unique",slot:"Ring",icon:window.ICONS["ring_divine_ring"]},
-  {id:"ring_ring_of_true_faith",name:"Ring of True Faith",tier:"unique",slot:"Ring",icon:window.ICONS["ring_ring_of_true_faith"]},
-  {id:"ring_spirit_ring",name:"Spirit Ring",tier:"unique",slot:"Ring",icon:window.ICONS["ring_spirit_ring"]},
-  {id:"ring_storm_ring",name:"Storm Ring",tier:"unique",slot:"Ring",icon:window.ICONS["ring_storm_ring"]},
-  {id:"ring_warlord_ring",name:"Warlord Ring",tier:"unique",slot:"Ring",icon:window.ICONS["ring_warlord_ring"]},
-  {id:"ring_willpower_ring",name:"Willpower Ring",tier:"unique",slot:"Ring",icon:window.ICONS["ring_willpower_ring"]},
-  {id:"neck_magus_necklace",name:"Magus Necklace",tier:"rare",slot:"Necklace",icon:window.ICONS["neck_magus_necklace"]},
-  {id:"neck_steel_necklace",name:"Steel Necklace",tier:"rare",slot:"Necklace",icon:window.ICONS["neck_steel_necklace"]},
-  {id:"neck_swiftness_pendant",name:"Swiftness Pendant",tier:"rare",slot:"Necklace",icon:window.ICONS["neck_swiftness_pendant"]},
-  {id:"neck_travellers_pendant",name:"Traveller's Pendant",tier:"rare",slot:"Necklace",icon:window.ICONS["neck_travellers_pendant"]},
-  {id:"neck_vitality_necklace",name:"Vitality Necklace",tier:"rare",slot:"Necklace",icon:window.ICONS["neck_vitality_necklace"]},
-  {id:"neck_assassin_pendant",name:"Assassin Pendant",tier:"epic",slot:"Necklace",icon:window.ICONS["neck_assassin_pendant"]},
-  {id:"neck_black_moon_pendant",name:"Black Moon Pendant",tier:"epic",slot:"Necklace",icon:window.ICONS["neck_black_moon_pendant"]},
-  {id:"neck_black_soul_pendant",name:"Black Soul Pendant",tier:"epic",slot:"Necklace",icon:window.ICONS["neck_black_soul_pendant"]},
-  {id:"neck_brawlers_pendant",name:"Brawler's Pendant",tier:"epic",slot:"Necklace",icon:window.ICONS["neck_brawlers_pendant"]},
-  {id:"neck_clerics_pendant",name:"Cleric's Pendant",tier:"epic",slot:"Necklace",icon:window.ICONS["neck_clerics_pendant"]},
-  {id:"neck_holy_priest_pendant",name:"Holy Priest Pendant",tier:"epic",slot:"Necklace",icon:window.ICONS["neck_holy_priest_pendant"]},
-  {id:"neck_knights_pendant",name:"Knight's Pendant",tier:"epic",slot:"Necklace",icon:window.ICONS["neck_knights_pendant"]},
-  {id:"neck_lifebloom_pendant",name:"Lifebloom Pendant",tier:"epic",slot:"Necklace",icon:window.ICONS["neck_lifebloom_pendant"]},
-  {id:"neck_mystic_pendant",name:"Mystic Pendant",tier:"epic",slot:"Necklace",icon:window.ICONS["neck_mystic_pendant"]},
-  {id:"neck_obsidian_pendant",name:"Obsidian Pendant",tier:"epic",slot:"Necklace",icon:window.ICONS["neck_obsidian_pendant"]},
-  {id:"neck_rangers_pendant",name:"Ranger's Pendant",tier:"epic",slot:"Necklace",icon:window.ICONS["neck_rangers_pendant"]},
-  {id:"neck_valiant_pendant",name:"Valiant Pendant",tier:"epic",slot:"Necklace",icon:window.ICONS["neck_valiant_pendant"]},
-  {id:"neck_warlocks_pendant",name:"Warlock's Pendant",tier:"epic",slot:"Necklace",icon:window.ICONS["neck_warlocks_pendant"]},
-  {id:"neck_amulet_of_chaos",name:"Amulet of Chaos",tier:"unique",slot:"Necklace",icon:window.ICONS["neck_amulet_of_chaos"]},
-  {id:"neck_blue_dragon_pendant",name:"Blue Dragon Pendant",tier:"unique",slot:"Necklace",icon:window.ICONS["neck_blue_dragon_pendant"]},
-  {id:"neck_divine_pendant",name:"Divine Pendant",tier:"unique",slot:"Necklace",icon:window.ICONS["neck_divine_pendant"]},
-  {id:"neck_necklace_of_true_faith",name:"Necklace of True Faith",tier:"unique",slot:"Necklace",icon:window.ICONS["neck_necklace_of_true_faith"]},
-  {id:"neck_spirit_necklace",name:"Spirit Necklace",tier:"unique",slot:"Necklace",icon:window.ICONS["neck_spirit_necklace"]},
-  {id:"neck_storm_necklace",name:"Storm Necklace",tier:"unique",slot:"Necklace",icon:window.ICONS["neck_storm_necklace"]},
-  {id:"neck_warlord_pendant",name:"Warlord Pendant",tier:"unique",slot:"Necklace",icon:window.ICONS["neck_warlord_pendant"]},
-  {id:"neck_willpower_necklace",name:"Willpower Necklace",tier:"unique",slot:"Necklace",icon:window.ICONS["neck_willpower_necklace"]},
-  {id:"belt_belt_of_agility",name:"Belt of Agility",tier:"rare",slot:"Belt",icon:window.ICONS["belt_belt_of_agility"]},
-  {id:"belt_belt_of_courage",name:"Belt of Courage",tier:"rare",slot:"Belt",icon:window.ICONS["belt_belt_of_courage"]},
-  {id:"belt_belt_of_pilgrim",name:"Belt of Pilgrim",tier:"rare",slot:"Belt",icon:window.ICONS["belt_belt_of_pilgrim"]},
-  {id:"belt_belt_of_wisdom",name:"Belt of Wisdom",tier:"rare",slot:"Belt",icon:window.ICONS["belt_belt_of_wisdom"]},
-  {id:"belt_aurora_belt",name:"Aurora Belt",tier:"epic",slot:"Belt",icon:window.ICONS["belt_aurora_belt"]},
-  {id:"belt_fire_resistance_belt",name:"Fire Resistance Belt",tier:"epic",slot:"Belt",icon:window.ICONS["belt_fire_resistance_belt"]},
-  {id:"belt_gaia_belt",name:"Gaia Belt",tier:"epic",slot:"Belt",icon:window.ICONS["belt_gaia_belt"]},
-  {id:"belt_ice_resistance_belt",name:"Ice Resistance Belt",tier:"epic",slot:"Belt",icon:window.ICONS["belt_ice_resistance_belt"]},
-  {id:"belt_lightning_resistance_belt",name:"Lightning Resistance Belt",tier:"epic",slot:"Belt",icon:window.ICONS["belt_lightning_resistance_belt"]},
-  {id:"belt_longevity_belt",name:"Longevity Belt",tier:"epic",slot:"Belt",icon:window.ICONS["belt_longevity_belt"]},
-  {id:"belt_poison_resistance_belt",name:"Poison Resistance Belt",tier:"epic",slot:"Belt",icon:window.ICONS["belt_poison_resistance_belt"]},
-  {id:"belt_belt_of_anticipation",name:"Belt of Anticipation",tier:"unique",slot:"Belt",icon:window.ICONS["belt_belt_of_anticipation"]},
-  {id:"belt_belt_of_battle_mage",name:"Belt of Battle Mage",tier:"unique",slot:"Belt",icon:window.ICONS["belt_belt_of_battle_mage"]},
-  {id:"belt_belt_of_iron_legionnaire",name:"Belt of Iron Legionnaire",tier:"unique",slot:"Belt",icon:window.ICONS["belt_belt_of_iron_legionnaire"]},
-  {id:"belt_belt_of_repel",name:"Belt of Repel",tier:"unique",slot:"Belt",icon:window.ICONS["belt_belt_of_repel"]},
-  {id:"belt_blessing_belt",name:"Blessing Belt",tier:"unique",slot:"Belt",icon:window.ICONS["belt_blessing_belt"]},
-  {id:"belt_cursed_belt",name:"Cursed Belt",tier:"unique",slot:"Belt",icon:window.ICONS["belt_cursed_belt"]},
-  {id:"belt_elven_belt",name:"Elven Belt",tier:"unique",slot:"Belt",icon:window.ICONS["belt_elven_belt"]},
-  {id:"belt_emerald_dragon_belt",name:"Emerald Dragon Belt",tier:"unique",slot:"Belt",icon:window.ICONS["belt_emerald_dragon_belt"]},
-  {id:"belt_firebreath",name:"Firebreath",tier:"unique",slot:"Belt",icon:window.ICONS["belt_firebreath"]},
-  {id:"belt_gaze_branch_belt",name:"Gaze Branch Belt",tier:"unique",slot:"Belt",icon:window.ICONS["belt_gaze_branch_belt"]},
-  {id:"belt_gloom_belt",name:"Gloom Belt",tier:"unique",slot:"Belt",icon:window.ICONS["belt_gloom_belt"]},
-  {id:"belt_lionheart_defender_belt",name:"Lionheart Defender Belt",tier:"unique",slot:"Belt",icon:window.ICONS["belt_lionheart_defender_belt"]},
-  {id:"belt_lornas_belt",name:"Lorna's Belt",tier:"unique",slot:"Belt",icon:window.ICONS["belt_lornas_belt"]},
-  {id:"belt_moon_belt",name:"Moon Belt",tier:"unique",slot:"Belt",icon:window.ICONS["belt_moon_belt"]},
-  {id:"belt_sun_belt",name:"Sun Belt",tier:"unique",slot:"Belt",icon:window.ICONS["belt_sun_belt"]}
+  {id:"ear_magus_earring",name:"Magus Earring",tier:"rare",slot:"Earring",icon:'ear_magus_earring'},
+  {id:"ear_steel_earring",name:"Steel Earring",tier:"rare",slot:"Earring",icon:'ear_steel_earring'},
+  {id:"ear_swiftness_earring",name:"Swiftness Earring",tier:"rare",slot:"Earring",icon:'ear_swiftness_earring'},
+  {id:"ear_travellers_earring",name:"Traveller's Earring",tier:"rare",slot:"Earring",icon:'ear_travellers_earring'},
+  {id:"ear_vitality_earring",name:"Vitality Earring",tier:"rare",slot:"Earring",icon:'ear_vitality_earring'},
+  {id:"ear_assassin_earring",name:"Assassin Earring",tier:"epic",slot:"Earring",icon:'ear_assassin_earring'},
+  {id:"ear_brawlers_earring",name:"Brawler's Earring",tier:"epic",slot:"Earring",icon:'ear_brawlers_earring'},
+  {id:"ear_clerics_earring",name:"Cleric's Earring",tier:"epic",slot:"Earring",icon:'ear_clerics_earring'},
+  {id:"ear_earring_of_persistence",name:"Earring of Persistence",tier:"epic",slot:"Earring",icon:'ear_earring_of_persistence'},
+  {id:"ear_holy_priest_earring",name:"Holy Priest Earring",tier:"epic",slot:"Earring",icon:'ear_holy_priest_earring'},
+  {id:"ear_knights_earring",name:"Knight's Earring",tier:"epic",slot:"Earring",icon:'ear_knights_earring'},
+  {id:"ear_lifebloom_earring",name:"Lifebloom Earring",tier:"epic",slot:"Earring",icon:'ear_lifebloom_earring'},
+  {id:"ear_mystic_earring",name:"Mystic Earring",tier:"epic",slot:"Earring",icon:'ear_mystic_earring'},
+  {id:"ear_obsidian_earring",name:"Obsidian Earring",tier:"epic",slot:"Earring",icon:'ear_obsidian_earring'},
+  {id:"ear_rangers_earring",name:"Ranger's Earring",tier:"epic",slot:"Earring",icon:'ear_rangers_earring'},
+  {id:"ear_valiant_earring",name:"Valiant Earring",tier:"epic",slot:"Earring",icon:'ear_valiant_earring'},
+  {id:"ear_warlocks_earring",name:"Warlock's Earring",tier:"epic",slot:"Earring",icon:'ear_warlocks_earring'},
+  {id:"ear_blue_dragon_earring",name:"Blue Dragon Earring",tier:"unique",slot:"Earring",icon:'ear_blue_dragon_earring'},
+  {id:"ear_chaos_earring",name:"Chaos Earring",tier:"unique",slot:"Earring",icon:'ear_chaos_earring'},
+  {id:"ear_divine_earring",name:"Divine Earring",tier:"unique",slot:"Earring",icon:'ear_divine_earring'},
+  {id:"ear_earring_of_true_faith",name:"Earring of True Faith",tier:"unique",slot:"Earring",icon:'ear_earring_of_true_faith'},
+  {id:"ear_spirit_earring",name:"Spirit Earring",tier:"unique",slot:"Earring",icon:'ear_spirit_earring'},
+  {id:"ear_storm_earring",name:"Storm Earring",tier:"unique",slot:"Earring",icon:'ear_storm_earring'},
+  {id:"ear_warlord_earring",name:"Warlord Earring",tier:"unique",slot:"Earring",icon:'ear_warlord_earring'},
+  {id:"ear_willpower_earring",name:"Willpower Earring",tier:"unique",slot:"Earring",icon:'ear_willpower_earring'},
+  {id:"ring_magus_ring",name:"Magus Ring",tier:"rare",slot:"Ring",icon:'ring_magus_ring'},
+  {id:"ring_steel_ring",name:"Steel Ring",tier:"rare",slot:"Ring",icon:'ring_steel_ring'},
+  {id:"ring_swiftness_ring",name:"Swiftness Ring",tier:"rare",slot:"Ring",icon:'ring_swiftness_ring'},
+  {id:"ring_travellers_ring",name:"Traveller's Ring",tier:"rare",slot:"Ring",icon:'ring_travellers_ring'},
+  {id:"ring_vitality_ring",name:"Vitality Ring",tier:"rare",slot:"Ring",icon:'ring_vitality_ring'},
+  {id:"ring_assassin_ring",name:"Assassin Ring",tier:"epic",slot:"Ring",icon:'ring_assassin_ring'},
+  {id:"ring_black_soul_ring",name:"Black Soul Ring",tier:"epic",slot:"Ring",icon:'ring_black_soul_ring'},
+  {id:"ring_brawlers_ring",name:"Brawler's Ring",tier:"epic",slot:"Ring",icon:'ring_brawlers_ring'},
+  {id:"ring_clerics_ring",name:"Cleric's Ring",tier:"epic",slot:"Ring",icon:'ring_clerics_ring'},
+  {id:"ring_holy_priest_ring",name:"Holy Priest Ring",tier:"epic",slot:"Ring",icon:'ring_holy_priest_ring'},
+  {id:"ring_knights_ring",name:"Knight's Ring",tier:"epic",slot:"Ring",icon:'ring_knights_ring'},
+  {id:"ring_lifebloom_ring",name:"Lifebloom Ring",tier:"epic",slot:"Ring",icon:'ring_lifebloom_ring'},
+  {id:"ring_mystic_ring",name:"Mystic Ring",tier:"epic",slot:"Ring",icon:'ring_mystic_ring'},
+  {id:"ring_obsidian_ring",name:"Obsidian Ring",tier:"epic",slot:"Ring",icon:'ring_obsidian_ring'},
+  {id:"ring_rangers_ring",name:"Ranger's Ring",tier:"epic",slot:"Ring",icon:'ring_rangers_ring'},
+  {id:"ring_valiant_ring",name:"Valiant Ring",tier:"epic",slot:"Ring",icon:'ring_valiant_ring'},
+  {id:"ring_warlocks_ring",name:"Warlock's Ring",tier:"epic",slot:"Ring",icon:'ring_warlocks_ring'},
+  {id:"ring_blue_dragon_ring",name:"Blue Dragon Ring",tier:"unique",slot:"Ring",icon:'ring_blue_dragon_ring'},
+  {id:"ring_chaos_ring",name:"Chaos Ring",tier:"unique",slot:"Ring",icon:'ring_chaos_ring'},
+  {id:"ring_divine_ring",name:"Divine Ring",tier:"unique",slot:"Ring",icon:'ring_divine_ring'},
+  {id:"ring_ring_of_true_faith",name:"Ring of True Faith",tier:"unique",slot:"Ring",icon:'ring_ring_of_true_faith'},
+  {id:"ring_spirit_ring",name:"Spirit Ring",tier:"unique",slot:"Ring",icon:'ring_spirit_ring'},
+  {id:"ring_storm_ring",name:"Storm Ring",tier:"unique",slot:"Ring",icon:'ring_storm_ring'},
+  {id:"ring_warlord_ring",name:"Warlord Ring",tier:"unique",slot:"Ring",icon:'ring_warlord_ring'},
+  {id:"ring_willpower_ring",name:"Willpower Ring",tier:"unique",slot:"Ring",icon:'ring_willpower_ring'},
+  {id:"neck_magus_necklace",name:"Magus Necklace",tier:"rare",slot:"Necklace",icon:'neck_magus_necklace'},
+  {id:"neck_steel_necklace",name:"Steel Necklace",tier:"rare",slot:"Necklace",icon:'neck_steel_necklace'},
+  {id:"neck_swiftness_pendant",name:"Swiftness Pendant",tier:"rare",slot:"Necklace",icon:'neck_swiftness_pendant'},
+  {id:"neck_travellers_pendant",name:"Traveller's Pendant",tier:"rare",slot:"Necklace",icon:'neck_travellers_pendant'},
+  {id:"neck_vitality_necklace",name:"Vitality Necklace",tier:"rare",slot:"Necklace",icon:'neck_vitality_necklace'},
+  {id:"neck_assassin_pendant",name:"Assassin Pendant",tier:"epic",slot:"Necklace",icon:'neck_assassin_pendant'},
+  {id:"neck_black_moon_pendant",name:"Black Moon Pendant",tier:"epic",slot:"Necklace",icon:'neck_black_moon_pendant'},
+  {id:"neck_black_soul_pendant",name:"Black Soul Pendant",tier:"epic",slot:"Necklace",icon:'neck_black_soul_pendant'},
+  {id:"neck_brawlers_pendant",name:"Brawler's Pendant",tier:"epic",slot:"Necklace",icon:'neck_brawlers_pendant'},
+  {id:"neck_clerics_pendant",name:"Cleric's Pendant",tier:"epic",slot:"Necklace",icon:'neck_clerics_pendant'},
+  {id:"neck_holy_priest_pendant",name:"Holy Priest Pendant",tier:"epic",slot:"Necklace",icon:'neck_holy_priest_pendant'},
+  {id:"neck_knights_pendant",name:"Knight's Pendant",tier:"epic",slot:"Necklace",icon:'neck_knights_pendant'},
+  {id:"neck_lifebloom_pendant",name:"Lifebloom Pendant",tier:"epic",slot:"Necklace",icon:'neck_lifebloom_pendant'},
+  {id:"neck_mystic_pendant",name:"Mystic Pendant",tier:"epic",slot:"Necklace",icon:'neck_mystic_pendant'},
+  {id:"neck_obsidian_pendant",name:"Obsidian Pendant",tier:"epic",slot:"Necklace",icon:'neck_obsidian_pendant'},
+  {id:"neck_rangers_pendant",name:"Ranger's Pendant",tier:"epic",slot:"Necklace",icon:'neck_rangers_pendant'},
+  {id:"neck_valiant_pendant",name:"Valiant Pendant",tier:"epic",slot:"Necklace",icon:'neck_valiant_pendant'},
+  {id:"neck_warlocks_pendant",name:"Warlock's Pendant",tier:"epic",slot:"Necklace",icon:'neck_warlocks_pendant'},
+  {id:"neck_amulet_of_chaos",name:"Amulet of Chaos",tier:"unique",slot:"Necklace",icon:'neck_amulet_of_chaos'},
+  {id:"neck_blue_dragon_pendant",name:"Blue Dragon Pendant",tier:"unique",slot:"Necklace",icon:'neck_blue_dragon_pendant'},
+  {id:"neck_divine_pendant",name:"Divine Pendant",tier:"unique",slot:"Necklace",icon:'neck_divine_pendant'},
+  {id:"neck_necklace_of_true_faith",name:"Necklace of True Faith",tier:"unique",slot:"Necklace",icon:'neck_necklace_of_true_faith'},
+  {id:"neck_spirit_necklace",name:"Spirit Necklace",tier:"unique",slot:"Necklace",icon:'neck_spirit_necklace'},
+  {id:"neck_storm_necklace",name:"Storm Necklace",tier:"unique",slot:"Necklace",icon:'neck_storm_necklace'},
+  {id:"neck_warlord_pendant",name:"Warlord Pendant",tier:"unique",slot:"Necklace",icon:'neck_warlord_pendant'},
+  {id:"neck_willpower_necklace",name:"Willpower Necklace",tier:"unique",slot:"Necklace",icon:'neck_willpower_necklace'},
+  {id:"belt_belt_of_agility",name:"Belt of Agility",tier:"rare",slot:"Belt",icon:'belt_belt_of_agility'},
+  {id:"belt_belt_of_courage",name:"Belt of Courage",tier:"rare",slot:"Belt",icon:'belt_belt_of_courage'},
+  {id:"belt_belt_of_pilgrim",name:"Belt of Pilgrim",tier:"rare",slot:"Belt",icon:'belt_belt_of_pilgrim'},
+  {id:"belt_belt_of_wisdom",name:"Belt of Wisdom",tier:"rare",slot:"Belt",icon:'belt_belt_of_wisdom'},
+  {id:"belt_aurora_belt",name:"Aurora Belt",tier:"epic",slot:"Belt",icon:'belt_aurora_belt'},
+  {id:"belt_fire_resistance_belt",name:"Fire Resistance Belt",tier:"epic",slot:"Belt",icon:'belt_fire_resistance_belt'},
+  {id:"belt_gaia_belt",name:"Gaia Belt",tier:"epic",slot:"Belt",icon:'belt_gaia_belt'},
+  {id:"belt_ice_resistance_belt",name:"Ice Resistance Belt",tier:"epic",slot:"Belt",icon:'belt_ice_resistance_belt'},
+  {id:"belt_lightning_resistance_belt",name:"Lightning Resistance Belt",tier:"epic",slot:"Belt",icon:'belt_lightning_resistance_belt'},
+  {id:"belt_longevity_belt",name:"Longevity Belt",tier:"epic",slot:"Belt",icon:'belt_longevity_belt'},
+  {id:"belt_poison_resistance_belt",name:"Poison Resistance Belt",tier:"epic",slot:"Belt",icon:'belt_poison_resistance_belt'},
+  {id:"belt_belt_of_anticipation",name:"Belt of Anticipation",tier:"unique",slot:"Belt",icon:'belt_belt_of_anticipation'},
+  {id:"belt_belt_of_battle_mage",name:"Belt of Battle Mage",tier:"unique",slot:"Belt",icon:'belt_belt_of_battle_mage'},
+  {id:"belt_belt_of_iron_legionnaire",name:"Belt of Iron Legionnaire",tier:"unique",slot:"Belt",icon:'belt_belt_of_iron_legionnaire'},
+  {id:"belt_belt_of_repel",name:"Belt of Repel",tier:"unique",slot:"Belt",icon:'belt_belt_of_repel'},
+  {id:"belt_blessing_belt",name:"Blessing Belt",tier:"unique",slot:"Belt",icon:'belt_blessing_belt'},
+  {id:"belt_cursed_belt",name:"Cursed Belt",tier:"unique",slot:"Belt",icon:'belt_cursed_belt'},
+  {id:"belt_elven_belt",name:"Elven Belt",tier:"unique",slot:"Belt",icon:'belt_elven_belt'},
+  {id:"belt_emerald_dragon_belt",name:"Emerald Dragon Belt",tier:"unique",slot:"Belt",icon:'belt_emerald_dragon_belt'},
+  {id:"belt_firebreath",name:"Firebreath",tier:"unique",slot:"Belt",icon:'belt_firebreath'},
+  {id:"belt_gaze_branch_belt",name:"Gaze Branch Belt",tier:"unique",slot:"Belt",icon:'belt_gaze_branch_belt'},
+  {id:"belt_gloom_belt",name:"Gloom Belt",tier:"unique",slot:"Belt",icon:'belt_gloom_belt'},
+  {id:"belt_lionheart_defender_belt",name:"Lionheart Defender Belt",tier:"unique",slot:"Belt",icon:'belt_lionheart_defender_belt'},
+  {id:"belt_lornas_belt",name:"Lorna's Belt",tier:"unique",slot:"Belt",icon:'belt_lornas_belt'},
+  {id:"belt_moon_belt",name:"Moon Belt",tier:"unique",slot:"Belt",icon:'belt_moon_belt'},
+  {id:"belt_sun_belt",name:"Sun Belt",tier:"unique",slot:"Belt",icon:'belt_sun_belt'}
 ];
 
 /* ── STATE ── */
@@ -870,7 +875,7 @@ function calculate(){
       </div>
     </div>
     <div class="mat-row">
-      <div class="mat-ico"><img src="${t.shardIcon}" style="width:28px;height:28px;object-fit:contain;image-rendering:pixelated;"></div>
+      <div class="mat-ico"><img src="${getIcon(t.shardIcon)}" style="width:28px;height:28px;object-fit:contain;image-rendering:pixelated;"></div>
       <div class="mat-info">
         <div class="mat-name" style="color:var(--${tk})">${t.shard}</div>
         <div class="mat-sub">${t.label} tier</div>
@@ -881,7 +886,7 @@ function calculate(){
       </div>
     </div>
     <div class="mat-row">
-      <div class="mat-ico"><img src="${t.scrollIcon}" style="width:28px;height:28px;object-fit:contain;image-rendering:pixelated;"></div>
+      <div class="mat-ico"><img src="${getIcon(t.scrollIcon)}" style="width:28px;height:28px;object-fit:contain;image-rendering:pixelated;"></div>
       <div class="mat-info">
         <div class="mat-name" style="color:var(--${tk})">${t.scroll}</div>
         <div class="mat-sub">${t.label} tier</div>
@@ -912,13 +917,13 @@ function calculate(){
           ${accCost?`<span class="chip-cost"> · ${fmtN(accCost)} G</span>`:''}
         </div>
         <div class="chip">
-          <span class="chip-ico"><img src="${t.shardIcon}" style="width:16px;height:16px;object-fit:contain;image-rendering:pixelated;"></span>
+          <span class="chip-ico"><img src="${getIcon(t.shardIcon)}" style="width:16px;height:16px;object-fit:contain;image-rendering:pixelated;"></span>
           <span class="chip-lbl">${t.shard}</span>
           <span class="chip-qty"> ×${s.shard}</span>
           ${s.shardCost?`<span class="chip-cost">(${fmtN(s.shardCost)} G)</span>`:''}
         </div>
         <div class="chip">
-          <span class="chip-ico"><img src="${t.scrollIcon}" style="width:16px;height:16px;object-fit:contain;image-rendering:pixelated;"></span>
+          <span class="chip-ico"><img src="${getIcon(t.scrollIcon)}" style="width:16px;height:16px;object-fit:contain;image-rendering:pixelated;"></span>
           <span class="chip-lbl">${t.scroll}</span>
           <span class="chip-qty"> ×${s.scroll}</span>
           ${s.scrollCost?`<span class="chip-cost">(${fmtN(s.scrollCost)} G)</span>`:''}
