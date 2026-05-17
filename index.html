@@ -397,43 +397,126 @@ footer {
 ::-webkit-scrollbar{width:6px;}
 ::-webkit-scrollbar-track{background:var(--bg);}
 ::-webkit-scrollbar-thumb{background:var(--brd2);border-radius:3px;}
+
+/* ── SHARED NAV ─────────────────────────────────── */
+.riselab-nav {
+  position: sticky; top: 0; z-index: 200;
+  height: 56px;
+  background: rgba(13,17,23,0.92);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  display: flex; align-items: center;
+  padding: 0 32px; gap: 24px;
+}
+.riselab-nav .nav-logo {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none; flex-shrink: 0;
+}
+.riselab-nav .nav-logo-text {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 900; font-size: 18px;
+  background: linear-gradient(90deg, #c4a0e8, #fff);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.riselab-nav .nav-logo-beta {
+  font-size: 9px; font-weight: 800;
+  background: #6a3a9a; color: #fff;
+  padding: 2px 6px; border-radius: 4px;
+  letter-spacing: 1px; -webkit-text-fill-color: #fff;
+}
+.riselab-nav .nav-links {
+  display: flex; align-items: center; gap: 2px; flex: 1;
+}
+.riselab-nav .nav-links a,
+.riselab-nav .nav-dropdown > .nav-btn {
+  text-decoration: none; color: #8a9abb;
+  font-size: 14px; font-weight: 700;
+  padding: 6px 14px; border-radius: 10px;
+  transition: all .15s; white-space: nowrap;
+  cursor: pointer; background: none; border: none;
+  font-family: 'Nunito', sans-serif;
+  display: flex; align-items: center; gap: 5px;
+}
+.riselab-nav .nav-links a:hover,
+.riselab-nav .nav-dropdown > .nav-btn:hover { color: #eef2ff; background: rgba(255,255,255,0.06); }
+.riselab-nav .nav-links a.nav-active { color: #c4a0e8; background: rgba(155,92,219,0.14); }
+.riselab-nav .nav-dropdown > .nav-btn.nav-active { color: #c4a0e8; background: rgba(155,92,219,0.14); }
+.riselab-nav .nav-dropdown { position: relative; }
+.riselab-nav .nav-dropdown > .nav-btn .nav-arrow { font-size: 10px; opacity: .6; transition: transform .2s; }
+.riselab-nav .nav-dropdown:hover > .nav-btn .nav-arrow { transform: rotate(180deg); }
+.riselab-nav .nav-dropdown-menu {
+  position: absolute; top: calc(100% + 8px); left: 0;
+  background: #161e2e;
+  border: 1px solid #2a3f5f;
+  border-radius: 14px; padding: 6px;
+  min-width: 220px;
+  box-shadow: 0 12px 36px rgba(0,0,0,0.4);
+  opacity: 0; visibility: hidden; transform: translateY(-6px);
+  transition: all .18s;
+  z-index: 300;
+}
+.riselab-nav .nav-dropdown:hover .nav-dropdown-menu {
+  opacity: 1; visibility: visible; transform: translateY(0);
+}
+.riselab-nav .nav-dropdown-menu a {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 14px; border-radius: 10px;
+  text-decoration: none; color: #8a9abb;
+  font-size: 14px; font-weight: 700;
+  transition: all .15s;
+}
+.riselab-nav .nav-dropdown-menu a:hover { color: #eef2ff; background: rgba(255,255,255,0.06); }
+.riselab-nav .nav-dropdown-menu a.nav-active { color: #c4a0e8; background: rgba(155,92,219,0.12); }
+.riselab-nav .nav-dropdown-menu .dd-icon { font-size: 18px; width: 28px; text-align: center; }
+.riselab-nav .nav-dropdown-menu .dd-info { display: flex; flex-direction: column; }
+.riselab-nav .nav-dropdown-menu .dd-name { font-size: 13px; font-weight: 800; color: inherit; }
+.riselab-nav .nav-dropdown-menu .dd-sub { font-size: 11px; color: #4a5980; font-weight: 600; margin-top: 1px; }
+
 </style>
 </head>
 <body>
 
 <!-- ═══ HEADER ═══════════════════════════════════════════════════ -->
-<header>
-  <a href="#" class="logo">
-    <svg class="logo-svg" viewBox="0 0 38 38" fill="none" style="width:38px;height:38px;flex-shrink:0;">
-      <polygon points="19,1 37,19 19,37 1,19" fill="#ffe8d6" stroke="url(#lg)" stroke-width="1.5"/>
+<nav class="riselab-nav">
+  <a href="index.html" class="nav-logo">
+    <svg viewBox="0 0 38 38" fill="none" style="width:34px;height:34px;flex-shrink:0;">
+      <polygon points="19,1 37,19 19,37 1,19" fill="#ffe8d6" stroke="url(#rl-lg)" stroke-width="1.5"/>
       <polygon points="19,7 31,19 19,31 7,19" fill="none" stroke="#9b5cdb" stroke-width="0.6" opacity="0.4"/>
       <circle cx="19" cy="1" r="1.8" fill="#9b5cdb"/>
       <circle cx="19" cy="37" r="1.8" fill="#9b5cdb"/>
       <circle cx="37" cy="19" r="1.8" fill="#9b5cdb"/>
       <circle cx="1" cy="19" r="1.8" fill="#9b5cdb"/>
-      <text x="6" y="25" font-family="Georgia,serif" font-size="16" font-weight="700" fill="url(#lg2)">RL</text>
+      <text x="6" y="25" font-family="Georgia,serif" font-size="16" font-weight="700" fill="url(#rl-lg2)">RL</text>
       <defs>
-        <linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%">
+        <linearGradient id="rl-lg" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stop-color="#c4a0e8"/><stop offset="100%" stop-color="#9b5cdb"/>
         </linearGradient>
-        <linearGradient id="lg2" x1="0%" y1="0%" x2="100%" y2="100%">
+        <linearGradient id="rl-lg2" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stop-color="#9b5cdb"/><stop offset="100%" stop-color="#6a3a9a"/>
         </linearGradient>
       </defs>
     </svg>
-    <span class="logo-text">RiseLab</span>
-    <span class="logo-beta">BETA</span>
+    <span class="nav-logo-text">RiseLab</span>
+    <span class="nav-logo-beta">BETA</span>
   </a>
-  <nav>
-    <a href="#" class="active">Ana Sayfa</a>
-    <a href="#">Araçlar</a>
-    <a href="#">Rehberler</a>
-    <a href="#">Life Skills</a>
-    <a href="#">Patch Notes</a>
-    <a href="#">Duyurular</a>
-  </nav>
-  <button class="theme-btn" title="Tema">🌙</button>
-</header>
+  <div class="nav-links">
+    <a href="index.html" class="nav-active">Ana Sayfa</a>
+    <div class="nav-dropdown">
+      <button class="nav-btn">Araçlar <span class="nav-arrow">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="craft.html">
+          <span class="dd-icon">⚗️</span>
+          <span class="dd-info"><span class="dd-name">Craft Hesaplayıcı</span><span class="dd-sub">Leveling & maliyet rotası</span></span>
+        </a>
+        <a href="taki-upgrade.html">
+          <span class="dd-icon">💎</span>
+          <span class="dd-info"><span class="dd-name">Takı Upgrade</span><span class="dd-sub">Maliyet & materyal hesabı</span></span>
+        </a>
+      </div>
+    </div>
+    <a href="lifeskills.html">Life Skills</a>
+  </div>
+</nav>
 
 <!-- ═══ HERO ══════════════════════════════════════════════════════ -->
 <section class="hero">
@@ -446,8 +529,8 @@ footer {
     Sayılar, rotalar, maliyetler — hepsi burada.
   </p>
   <div class="hero-btns">
-    <a href="#" class="btn-primary">⚗️ Craft Hesaplayıcı</a>
-    <a href="#" class="btn-secondary">📖 Life Skills Rehberi</a>
+    <a href="craft.html" class="btn-primary">⚗️ Craft Hesaplayıcı</a>
+    <a href="lifeskills.html" class="btn-secondary">📖 Life Skills Rehberi</a>
   </div>
   <div class="hero-stats">
     <div class="stat">
@@ -482,7 +565,7 @@ footer {
     <div class="section-desc">Craft maliyetini, leveling rotasını ve takı yükseltmelerini hesapla.</div>
   </div>
   <div class="tool-grid">
-    <a href="#" class="tool-card featured">
+    <a href="craft.html" class="tool-card featured">
       <div class="tool-card-icon">⚗️</div>
       <div>
         <div class="tool-card-tag tag-tool">Ana Araç</div>
@@ -491,7 +574,7 @@ footer {
       </div>
       <div class="card-arrow">→</div>
     </a>
-    <a href="#" class="tool-card">
+    <a href="taki-upgrade.html" class="tool-card">
       <div class="tool-card-icon">💎</div>
       <div class="tool-card-tag tag-tool">Araç</div>
       <div class="tool-card-name">Takı Yükseltme Hesaplayıcı</div>
