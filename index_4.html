@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RiseLab — Rise Online Rehber & Araçlar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Cinzel:wght@700&display=swap" rel="stylesheet">
+<style>
+/* ── TOKENS ─────────────────────────────────────── */
+:root {
+  --bg:      #0d1117;
+  --bg2:     #111827;
+  --card:    #161e2e;
+  --card2:   #1e2d45;
+  --brd:     #1e2d45;
+  --brd2:    #2a3f5f;
+  --t1:      #eef2ff;
+  --t2:      #8a9abb;
+  --t3:      #4a5980;
+  --acc:     #9b5cdb;
+  --acc-l:   #c4a0e8;
+  --acc-d:   #6a3a9a;
+  --acc-glow:rgba(155,92,219,0.18);
+  --gold:    #e8a840;
+  --gold-l:  #ffd07a;
+  --energy:  #e07040;
+  --green:   #4ade80;
+  --radius:  16px;
+  --nav-h:   64px;
+}
+
+/* ── RESET ──────────────────────────────────────── */
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Nunito',sans-serif;
+  background:var(--bg);
+  color:var(--t1);
+  min-height:100vh;
+  overflow-x:hidden;
+  font-size:16px;
+  line-height:1.85;
+  font-weight:500;
+}
+
+/* ── SUBTLE BG TEXTURE ──────────────────────────── */
+body::before {
+  content:'';
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(ellipse 80% 50% at 20% -10%, rgba(155,92,219,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 110%, rgba(224,112,64,0.08) 0%, transparent 50%);
+  pointer-events:none;
+  z-index:0;
+}
+
+/* ── NAV ────────────────────────────────────────── */
+header {
+  position:sticky;top:0;z-index:100;
+  height:var(--nav-h);
+  background:rgba(13,17,23,0.88);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  display:flex;align-items:center;
+  padding:0 40px;gap:32px;
+}
+.logo {
+  display:flex;align-items:center;gap:10px;
+  text-decoration:none;flex-shrink:0;
+}
+.logo-icon {
+  width:36px;height:36px;
+  background:linear-gradient(135deg,var(--acc),var(--acc-d));
+  border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;
+  box-shadow:0 0 16px var(--acc-glow);
+}
+.logo-text {
+  font-weight:900;font-size:20px;
+  background:linear-gradient(90deg,var(--acc-l),#fff);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  letter-spacing:.5px;
+}
+.logo-beta {
+  font-size:9px;font-weight:800;
+  background:var(--acc-d);color:#fff;
+  padding:2px 6px;border-radius:4px;
+  letter-spacing:1px;
+  -webkit-text-fill-color:#fff;
+}
+nav {display:flex;align-items:center;gap:2px;flex:1;}
+nav a {
+  text-decoration:none;color:var(--t2);
+  font-size:14px;font-weight:700;
+  padding:6px 14px;border-radius:10px;
+  transition:all .15s;white-space:nowrap;
+}
+nav a:hover{color:var(--t1);background:rgba(255,255,255,0.05);}
+nav a.active{color:var(--acc-l);background:rgba(155,92,219,0.12);}
+.theme-btn {
+  margin-left:auto;
+  width:36px;height:36px;border-radius:10px;
+  border:1px solid var(--brd2);background:var(--card);
+  color:var(--t2);cursor:pointer;font-size:16px;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .15s;
+}
+.theme-btn:hover{border-color:var(--acc);color:var(--acc);}
+
+/* ── HERO ───────────────────────────────────────── */
+.hero {
+  position:relative;z-index:1;
+  min-height: calc(100vh - var(--nav-h));
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  text-align:center;
+  padding:80px 40px 60px;
+  gap:0;
+}
+.hero-eyebrow {
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(155,92,219,0.1);
+  border:1px solid rgba(155,92,219,0.3);
+  border-radius:20px;padding:6px 16px;
+  font-size:13px;font-weight:700;color:var(--acc-l);
+  letter-spacing:.5px;text-transform:uppercase;
+  margin-bottom:28px;
+  animation:fadeUp .6s ease both;
+}
+.hero-title {
+  font-family:'Cinzel',serif;
+  font-size:clamp(36px,6vw,80px);
+  font-weight:700;
+  line-height:1.1;
+  letter-spacing:-.5px;
+  margin-bottom:12px;
+  animation:fadeUp .6s .1s ease both;
+}
+.hero-title span {
+  background:linear-gradient(135deg,var(--acc-l) 0%,var(--gold-l) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.hero-sub {
+  font-size:clamp(16px,2vw,22px);
+  color:var(--t2);font-weight:500;
+  max-width:540px;line-height:1.6;
+  margin-bottom:40px;
+  animation:fadeUp .6s .2s ease both;
+}
+.hero-sub em {color:var(--t1);font-style:normal;font-weight:700;}
+.hero-btns {
+  display:flex;gap:14px;flex-wrap:wrap;justify-content:center;
+  animation:fadeUp .6s .3s ease both;
+  margin-bottom:64px;
+}
+.btn-primary {
+  display:inline-flex;align-items:center;gap:8px;
+  background:linear-gradient(135deg,var(--acc),var(--acc-d));
+  color:#fff;font-weight:800;font-size:15px;
+  padding:13px 28px;border-radius:12px;
+  text-decoration:none;border:none;cursor:pointer;
+  transition:all .2s;
+  box-shadow:0 4px 20px rgba(155,92,219,0.35);
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(155,92,219,0.5);}
+.btn-secondary {
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,0.05);
+  border:1px solid var(--brd2);
+  color:var(--t1);font-weight:700;font-size:15px;
+  padding:13px 28px;border-radius:12px;
+  text-decoration:none;cursor:pointer;
+  transition:all .2s;
+}
+.btn-secondary:hover{background:rgba(255,255,255,0.09);border-color:var(--acc);transform:translateY(-2px);}
+
+/* Hero stats */
+.hero-stats {
+  display:flex;gap:40px;flex-wrap:wrap;justify-content:center;
+  animation:fadeUp .6s .4s ease both;
+}
+.stat {display:flex;flex-direction:column;align-items:center;gap:4px;}
+.stat-num {font-size:28px;font-weight:900;color:var(--t1);}
+.stat-num span{color:var(--acc-l);}
+.stat-label {font-size:12px;font-weight:600;color:var(--t3);text-transform:uppercase;letter-spacing:.5px;}
+
+/* ── DIVIDER ────────────────────────────────────── */
+.divider {
+  position:relative;z-index:1;
+  display:flex;align-items:center;gap:16px;
+  max-width:1200px;margin:0 auto;
+  padding:0 40px 32px;
+}
+.divider-line{flex:1;height:1px;background:var(--brd);}
+.divider-label {
+  font-size:11px;font-weight:800;color:var(--t3);
+  text-transform:uppercase;letter-spacing:2px;white-space:nowrap;
+}
+
+/* ── SECTIONS ───────────────────────────────────── */
+.section {
+  position:relative;z-index:1;
+  max-width:1200px;margin:0 auto;
+  padding:0 40px 72px;
+}
+.section-header {
+  display:flex;align-items:flex-end;gap:16px;
+  margin-bottom:32px;
+}
+.section-title {
+  font-size:clamp(22px,3vw,32px);
+  font-weight:800;color:var(--t1);
+  line-height:1.1;
+}
+.section-title span{color:var(--acc-l);}
+.section-desc {
+  font-size:15px;color:var(--t2);
+  margin-left:auto;max-width:320px;
+  text-align:right;line-height:1.5;
+}
+
+/* ── ARAÇ KARTLARI ──────────────────────────────── */
+.tool-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:16px;
+}
+.tool-card {
+  background:var(--card);
+  border:1px solid var(--brd);
+  border-radius:var(--radius);
+  padding:24px;
+  text-decoration:none;
+  display:flex;flex-direction:column;gap:12px;
+  transition:all .2s;
+  position:relative;overflow:hidden;
+}
+.tool-card::before {
+  content:'';
+  position:absolute;inset:0;
+  background:linear-gradient(135deg,var(--card-accent,rgba(155,92,219,0)) 0%,transparent 60%);
+  opacity:0;transition:opacity .2s;
+}
+.tool-card:hover{transform:translateY(-4px);border-color:var(--brd2);box-shadow:0 12px 32px rgba(0,0,0,0.3);}
+.tool-card:hover::before{opacity:1;}
+.tool-card-icon {
+  width:48px;height:48px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:24px;
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.08);
+}
+.tool-card-name {font-size:17px;font-weight:800;color:var(--t1);}
+.tool-card-desc {font-size:14px;color:var(--t2);line-height:1.5;flex:1;}
+.tool-card-tag {
+  display:inline-flex;align-items:center;gap:5px;
+  font-size:11px;font-weight:700;
+  padding:3px 10px;border-radius:6px;
+  text-transform:uppercase;letter-spacing:.5px;
+  width:fit-content;
+}
+.tag-tool{background:rgba(155,92,219,0.15);color:var(--acc-l);}
+.tag-guide{background:rgba(232,168,64,0.15);color:var(--gold-l);}
+.tag-new{background:rgba(74,222,128,0.15);color:var(--green);}
+
+/* Featured (büyük) kart */
+.tool-card.featured {
+  grid-column:span 2;
+  flex-direction:row;align-items:center;gap:28px;
+  padding:32px;
+  --card-accent:rgba(155,92,219,0.08);
+}
+.tool-card.featured .tool-card-icon{width:64px;height:64px;font-size:32px;flex-shrink:0;}
+.tool-card.featured .tool-card-name{font-size:22px;}
+.tool-card.featured .tool-card-desc{font-size:15px;}
+.card-arrow {
+  margin-left:auto;flex-shrink:0;
+  width:36px;height:36px;border-radius:10px;
+  background:rgba(155,92,219,0.15);
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;color:var(--acc-l);
+  transition:all .2s;
+}
+.tool-card:hover .card-arrow{background:var(--acc);color:#fff;transform:translateX(3px);}
+
+/* ── REHBER KARTLARI ────────────────────────────── */
+.guide-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:14px;
+}
+.guide-card {
+  background:var(--card);
+  border:1px solid var(--brd);
+  border-radius:var(--radius);
+  padding:20px;
+  text-decoration:none;
+  display:flex;align-items:center;gap:14px;
+  transition:all .2s;
+}
+.guide-card:hover{border-color:var(--brd2);background:var(--card2);transform:translateX(4px);}
+.guide-card-icon{font-size:22px;flex-shrink:0;}
+.guide-card-info{}
+.guide-card-name{font-size:15px;font-weight:700;color:var(--t1);}
+.guide-card-sub{font-size:12px;color:var(--t3);margin-top:2px;}
+.guide-card-chevron{margin-left:auto;color:var(--t3);font-size:14px;transition:all .2s;}
+.guide-card:hover .guide-card-chevron{color:var(--acc-l);transform:translateX(3px);}
+
+/* ── HAKKINDA (ABOUT) ───────────────────────────── */
+.about-box {
+  background:linear-gradient(135deg,rgba(155,92,219,0.08) 0%,rgba(224,112,64,0.05) 100%);
+  border:1px solid rgba(155,92,219,0.2);
+  border-radius:24px;
+  padding:48px;
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:40px;
+  align-items:center;
+}
+.about-text{}
+.about-eyebrow {
+  font-size:12px;font-weight:800;color:var(--acc-l);
+  text-transform:uppercase;letter-spacing:1.5px;
+  margin-bottom:12px;
+}
+.about-title {font-size:28px;font-weight:800;color:var(--t1);margin-bottom:16px;line-height:1.2;}
+.about-title span{color:var(--acc-l);}
+.about-body {font-size:16px;color:var(--t2);line-height:1.8;max-width:540px;}
+.about-body strong{color:var(--t1);}
+.about-body p+p{margin-top:12px;}
+.about-badge {
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  padding:28px 36px;
+  background:rgba(255,255,255,0.04);
+  border:1px solid var(--brd2);
+  border-radius:18px;
+  flex-shrink:0;text-align:center;
+}
+.about-badge-icon{font-size:40px;}
+.about-badge-name{font-weight:800;color:var(--t1);font-size:16px;}
+.about-badge-role{font-size:12px;color:var(--t3);text-transform:uppercase;letter-spacing:.5px;}
+
+/* ── RISE NEDİR ─────────────────────────────────── */
+.info-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+  gap:14px;
+}
+.info-card {
+  background:var(--card);
+  border:1px solid var(--brd);
+  border-radius:var(--radius);
+  padding:22px;
+  display:flex;flex-direction:column;gap:8px;
+}
+.info-card-icon{font-size:24px;}
+.info-card-title{font-size:15px;font-weight:800;color:var(--t1);}
+.info-card-body{font-size:14px;color:var(--t2);line-height:1.6;}
+
+/* Uyarı kartı */
+.warning-card {
+  background:rgba(224,112,64,0.08);
+  border:1px solid rgba(224,112,64,0.25);
+  border-radius:var(--radius);
+  padding:20px 24px;
+  display:flex;gap:14px;align-items:flex-start;
+  margin-top:4px;
+  grid-column:1/-1;
+}
+.warning-icon{font-size:20px;flex-shrink:0;margin-top:2px;}
+.warning-text{font-size:14px;color:var(--t2);line-height:1.65;}
+.warning-text strong{color:var(--energy);}
+
+/* ── FOOTER ─────────────────────────────────────── */
+footer {
+  position:relative;z-index:1;
+  border-top:1px solid var(--brd);
+  padding:32px 40px;
+  display:flex;align-items:center;justify-content:space-between;
+  max-width:100%;
+  color:var(--t3);font-size:13px;
+}
+.footer-logo{font-weight:900;color:var(--t2);font-size:15px;}
+.footer-logo span{color:var(--acc);}
+
+/* ── ANIMATIONS ─────────────────────────────────── */
+@keyframes fadeUp {
+  from{opacity:0;transform:translateY(20px);}
+  to{opacity:1;transform:translateY(0);}
+}
+.fade-in {opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease;}
+.fade-in.visible{opacity:1;transform:none;}
+
+/* ── SCROLLBAR ──────────────────────────────────── */
+::-webkit-scrollbar{width:6px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--brd2);border-radius:3px;}
+</style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══════════════════════════════════════════════════ -->
+<header>
+  <a href="#" class="logo">
+    <svg class="logo-svg" viewBox="0 0 38 38" fill="none" style="width:38px;height:38px;flex-shrink:0;">
+      <polygon points="19,1 37,19 19,37 1,19" fill="#ffe8d6" stroke="url(#lg)" stroke-width="1.5"/>
+      <polygon points="19,7 31,19 19,31 7,19" fill="none" stroke="#9b5cdb" stroke-width="0.6" opacity="0.4"/>
+      <circle cx="19" cy="1" r="1.8" fill="#9b5cdb"/>
+      <circle cx="19" cy="37" r="1.8" fill="#9b5cdb"/>
+      <circle cx="37" cy="19" r="1.8" fill="#9b5cdb"/>
+      <circle cx="1" cy="19" r="1.8" fill="#9b5cdb"/>
+      <text x="6" y="25" font-family="Georgia,serif" font-size="16" font-weight="700" fill="url(#lg2)">RL</text>
+      <defs>
+        <linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#c4a0e8"/><stop offset="100%" stop-color="#9b5cdb"/>
+        </linearGradient>
+        <linearGradient id="lg2" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#9b5cdb"/><stop offset="100%" stop-color="#6a3a9a"/>
+        </linearGradient>
+      </defs>
+    </svg>
+    <span class="logo-text">RiseLab</span>
+    <span class="logo-beta">BETA</span>
+  </a>
+  <nav>
+    <a href="#" class="active">Ana Sayfa</a>
+    <a href="#">Araçlar</a>
+    <a href="#">Rehberler</a>
+    <a href="#">Life Skills</a>
+    <a href="#">Patch Notes</a>
+    <a href="#">Duyurular</a>
+  </nav>
+  <button class="theme-btn" title="Tema">🌙</button>
+</header>
+
+<!-- ═══ HERO ══════════════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-eyebrow">⛏ Rise Online · Gathering & Crafting</div>
+  <h1 class="hero-title">
+    Rise Online'da<br><span>kaybolmak istemeyenler</span><br>için.
+  </h1>
+  <p class="hero-sub">
+    Gathering, crafting ve üretim meslekleri için <em>rehberler</em> ve <em>hesap araçları</em>.<br>
+    Sayılar, rotalar, maliyetler — hepsi burada.
+  </p>
+  <div class="hero-btns">
+    <a href="#" class="btn-primary">⚗️ Craft Hesaplayıcı</a>
+    <a href="#" class="btn-secondary">📖 Life Skills Rehberi</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">9<span>+</span></div>
+      <div class="stat-label">Craft Mesleki</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">8<span>+</span></div>
+      <div class="stat-label">Gathering Mesleki</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">3<span>+</span></div>
+      <div class="stat-label">Hesap Aracı</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">∞</div>
+      <div class="stat-label">Craft Sevgisi</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ARAÇLAR ═══════════════════════════════════════════════════ -->
+<div class="divider">
+  <div class="divider-line"></div>
+  <div class="divider-label">⚙️ Araçlar</div>
+  <div class="divider-line"></div>
+</div>
+
+<section class="section fade-in">
+  <div class="section-header">
+    <div class="section-title">Hesap <span>Araçları</span></div>
+    <div class="section-desc">Craft maliyetini, leveling rotasını ve takı yükseltmelerini hesapla.</div>
+  </div>
+  <div class="tool-grid">
+    <a href="#" class="tool-card featured">
+      <div class="tool-card-icon">⚗️</div>
+      <div>
+        <div class="tool-card-tag tag-tool">Ana Araç</div>
+        <div class="tool-card-name" style="margin-top:6px;">Craft Hesaplama Aracı</div>
+        <div class="tool-card-desc">Meslek seviyeni gir, hedefini belirle — kaç malzeme lazım, ne kadara mal olur, hangi rotayı izle. Hepsi otomatik.</div>
+      </div>
+      <div class="card-arrow">→</div>
+    </a>
+    <a href="#" class="tool-card">
+      <div class="tool-card-icon">💎</div>
+      <div class="tool-card-tag tag-tool">Araç</div>
+      <div class="tool-card-name">Takı Yükseltme Hesaplayıcı</div>
+      <div class="tool-card-desc">Hangi takıyı kaça yükseltebilirsin? Malzeme ve maliyet hesabı.</div>
+      <div class="card-arrow">→</div>
+    </a>
+    <a href="#" class="tool-card">
+      <div class="tool-card-icon">📊</div>
+      <div class="tool-card-tag tag-new">Yakında</div>
+      <div class="tool-card-name">Pazar Analizi</div>
+      <div class="tool-card-desc">Hangi materyali satmak daha karlı? Üret mi sat mı kararı.</div>
+      <div class="card-arrow">→</div>
+    </a>
+  </div>
+</section>
+
+<!-- ═══ REHBERLEr ═════════════════════════════════════════════════ -->
+<div class="divider">
+  <div class="divider-line"></div>
+  <div class="divider-label">📖 Rehberler</div>
+  <div class="divider-line"></div>
+</div>
+
+<section class="section fade-in">
+  <div class="section-header">
+    <div class="section-title">Life Skills <span>Rehberi</span></div>
+    <div class="section-desc">Her meslek için başlangıç noktası, leveling rotası ve para kazanma tüyoları.</div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:20px;">
+    <!-- Gathering -->
+    <div>
+      <div style="font-size:12px;font-weight:800;color:var(--t3);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;">🌿 Gathering</div>
+      <div class="guide-grid" style="grid-template-columns:1fr;">
+        <a href="#" class="guide-card">
+          <span class="guide-card-icon">🪓</span>
+          <div class="guide-card-info">
+            <div class="guide-card-name">Woodcutting</div>
+            <div class="guide-card-sub">Oak · Pine · Aspen · Birch</div>
+          </div>
+          <span class="guide-card-chevron">›</span>
+        </a>
+        <a href="#" class="guide-card">
+          <span class="guide-card-icon">⛏</span>
+          <div class="guide-card-info">
+            <div class="guide-card-name">Mining</div>
+            <div class="guide-card-sub">Copper · Iron · Titanium · Gold</div>
+          </div>
+          <span class="guide-card-chevron">›</span>
+        </a>
+        <a href="#" class="guide-card">
+          <span class="guide-card-icon">🪨</span>
+          <div class="guide-card-info">
+            <div class="guide-card-name">Quarrying</div>
+            <div class="guide-card-sub">Rough Stone · Marble · Granite</div>
+          </div>
+          <span class="guide-card-chevron">›</span>
+        </a>
+        <a href="#" class="guide-card">
+          <span class="guide-card-icon">🏺</span>
+          <div class="guide-card-info">
+            <div class="guide-card-name">Archaeology</div>
+            <div class="guide-card-sub">Jewel Crafting için kritik</div>
+          </div>
+          <span class="guide-card-chevron">›</span>
+        </a>
+        <a href="#" class="guide-card">
+          <span class="guide-card-icon">🎣</span>
+          <div class="guide-card-info">
+            <div class="guide-card-name">Fishing</div>
+            <div class="guide-card-sub">Cooking hammaddesi</div>
+          </div>
+          <span class="guide-card-chevron">›</span>
+        </a>
+        <a href="#" class="guide-card">
+          <span class="guide-card-icon">🌾</span>
+          <div class="guide-card-info">
+            <div class="guide-card-name">Harvesting</div>
+            <div class="guide-card-sub">Alchemy için bitkiler</div>
+          </div>
+          <span class="guide-card-chevron">›</span>
+        </a>
+        <a href="#" class="guide-card">
+          <span class="guide-card-icon">🦌</span>
+          <div class="guide-card-info">
+            <div class="guide-card-name">Skinning</div>
+            <div class="guide-card-sub">Leatherworking hammaddesi</div>
+          </div>
+          <span class="guide-card-chevron">›</span>
+        </a>
+        <a href="#" class="guide-card">
+          <span class="guide-card-icon">🌿</span>
+          <div class="guide-card-info">
+            <div class="guide-card-name">Herbalism</div>
+            <div class="guide-card-sub">Alchemy için kritik</div>
+          </div>
+          <span class="guide-card-chevron">›</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Crafting -->
+    <div>
+      <div style="font-size:12px;font-weight:800;color:var(--t3);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;">⚒️ Crafting</div>
+      <div class="guide-grid" style="grid-template-columns:1fr;">
+        <a href="#" class="guide-card">
+          <span class="guide-card-icon">🧵</span>
+          <div class="guide-card-info">
+            <div class="guide-card-name">Tailoring</div>
+            <div class="guide-card-sub">Cotton → Fabric → Armor</div>
+          </div>
+          <span class="guide-card-chevron">›</span>
+        </a>
+        <a href="#" class="guide-card">
+          <span class="guide-card-icon">🪡</span>
+          <div class="guide-card-info">
+            <div class="guide-card-name">Leatherworking</div>
+            <div class="guide-card-sub">Hide → Raw → Tanned Leather</div>
+          </div>
+          <span class="guide-card-chevron">›</span>
+        </a>
+        <a href="#" class="guide-card">
+          <span class="guide-card-icon">🪵</span>
+          <div class="guide-card-info">
+            <div class="guide-card-name">Carpentry</div>
+            <div class="guide-card-sub">Wood → Timber → Plank</div>
+          </div>
+          <span class="guide-card-chevron">›</span>
+        </a>
+        <a href="#" class="guide-card">
+          <span class="guide-card-icon">⚙️</span>
+          <div class="guide-card-info">
+            <div class="guide-card-name">Smelting</div>
+            <div class="guide-card-sub">Ore → Plate · Stick · Bar</div>
+          </div>
+          <span class="guide-card-chevron">›</span>
+        </a>
+        <a href="#" class="guide-card">
+          <span class="guide-card-icon">⚗️</span>
+          <div class="guide-card-info">
+            <div class="guide-card-name">Alchemy</div>
+            <div class="guide-card-sub">İksir & Potion üretimi</div>
+          </div>
+          <span class="guide-card-chevron">›</span>
+        </a>
+        <a href="#" class="guide-card">
+          <span class="guide-card-icon">🍳</span>
+          <div class="guide-card-info">
+            <div class="guide-card-name">Cooking</div>
+            <div class="guide-card-sub">Buff yemekleri & içecekler</div>
+          </div>
+          <span class="guide-card-chevron">›</span>
+        </a>
+        <a href="#" class="guide-card">
+          <span class="guide-card-icon">🛡️</span>
+          <div class="guide-card-info">
+            <div class="guide-card-name">Armor Smithing</div>
+            <div class="guide-card-sub">Base → Enhanced zırh</div>
+          </div>
+          <span class="guide-card-chevron">›</span>
+        </a>
+        <a href="#" class="guide-card">
+          <span class="guide-card-icon">⚔️</span>
+          <div class="guide-card-info">
+            <div class="guide-card-name">Weapon Smithing</div>
+            <div class="guide-card-sub">Common'dan Exalted'a silahlar</div>
+          </div>
+          <span class="guide-card-chevron">›</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ RISE NEDİR ════════════════════════════════════════════════ -->
+<div class="divider">
+  <div class="divider-line"></div>
+  <div class="divider-label">🌍 Rise Online</div>
+  <div class="divider-line"></div>
+</div>
+
+<section class="section fade-in">
+  <div class="section-header">
+    <div class="section-title">Rise Online <span>Nedir?</span></div>
+  </div>
+  <div class="info-grid">
+    <div class="info-card">
+      <div class="info-card-icon">🎮</div>
+      <div class="info-card-title">MMORPG</div>
+      <div class="info-card-body">Türk yapımı çok oyunculu online rol yapma oyunu. Karakterini yaratırsın, dünyayı keşfedersin, güçlenirsin.</div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-icon">⚒️</div>
+      <div class="info-card-title">Derin Crafting Sistemi</div>
+      <div class="info-card-body">9 üretim mesleki, birbirine bağlı hammadde zincirleri ve oyuncu tarafından döndürülen ekonomi.</div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-icon">🗡️</div>
+      <div class="info-card-title">Zindan & Boss & PvP</div>
+      <div class="info-card-body">Solo ya da grupla zindanlara gir, boss'ları yen, PvP arenasında diğer oyuncularla boy ölç.</div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-icon">📈</div>
+      <div class="info-card-title">Upgrade & RNG</div>
+      <div class="info-card-body">Ekipmanlarını güçlendirmek için upgrade sistemi var. Şans faktörü devrede — sabır ve sinir yönetimi şart. 😄</div>
+    </div>
+    <div class="warning-card">
+      <div class="warning-icon">⚠️</div>
+      <div class="warning-text">
+        <strong>Dürüst not:</strong> Rise Online teknik olarak ücretsiz ama pay2win unsurları var. Para harcayan oyuncular özellikle ortak etkinliklerde belirgin avantaj elde ediyor. Kendi hızında oynamak isteyenler için bu zaman zaman can sıkıcı bir gerçek. Crafting ve gathering alanlarında bu etki görece daha az — bu sitenin var olma sebebi de biraz oradan geliyor. ⛏️
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ HAKKINDA ═══════════════════════════════════════════════════ -->
+<div class="divider">
+  <div class="divider-line"></div>
+  <div class="divider-label">🌸 Hakkında</div>
+  <div class="divider-line"></div>
+</div>
+
+<section class="section fade-in" style="padding-bottom:80px;">
+  <div class="about-box">
+    <div class="about-text">
+      <div class="about-eyebrow">RiseLab nedir?</div>
+      <h2 class="about-title">Rise Online'da kaybolup gitmeden önce <span>doğru yere geldin.</span></h2>
+      <div class="about-body">
+        <p>Bu site ne bir wiki, ne de her şeyi bildiğini iddia eden bir rehber. RiseLab, gathering ve crafting konusuna biraz fazla takılmış birinin — yani benim — kendi oyun deneyiminden derlediği pratik bir kaynak.</p>
+        <p>Hangi materyali nerede toplamalısın, smeltingde ilk 10 seviyeyi en ucuza nasıl geçersin, topladığın malzemeleri satmak mı yoksa işlemek mi daha karlı bunlar benim sevdiğim sorular. Ve cevaplarını burada bulacaksın.</p>
+        <p>Hesap araçlarımıza da göz at ! Craft maliyetinden takı yükseltmeye kadar birkaç şeyi sayıya dökmüşüz. Sayılar yalan söylemez, en azından biz söylememeye çalışıyoruz. 😄</p>
+        <p>Tabii bu işin bir de "hangi zırhı giyeyim", "PvP'de nasıl kazanırım" tarafı var. O konularda söyleyeceklerim pek yok, orada gerçekten bilge insanlar var, ben sadece baltamı iyi bilirim. 🪓</p>
+        <p><em style="color:var(--acc-l);font-style:normal;font-weight:700;">İyi oyunlar!</em></p>
+      </div>
+    </div>
+    <div class="about-badge">
+      <div class="about-badge-icon">🌸</div>
+      <div class="about-badge-name">Petunya</div>
+      <div class="about-badge-role">Kurucu & Rehber Yazarı</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ════════════════════════════════════════════════════ -->
+<footer>
+  <div class="footer-logo">Rise<span>Lab</span></div>
+  <div>Rise Online için bağımsız bir topluluk kaynağı.</div>
+  <div>2025 · BETA</div>
+</footer>
+
+<script>
+// Scroll fade-in
+const obs = new IntersectionObserver(els => {
+  els.forEach(el => { if(el.isIntersecting) el.target.classList.add('visible'); });
+}, {threshold:0.08});
+document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+// Theme toggle (placeholder)
+document.querySelector('.theme-btn').addEventListener('click', () => {
+  document.body.classList.toggle('light');
+});
+</script>
+</body>
+</html>
