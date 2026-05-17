@@ -629,8 +629,9 @@ function getP(id){const el=document.getElementById(id);if(!el)return 0;return pa
 
 /* ── DROPDOWN ── */
 function icoEl(item){
-  return item.icon
-    ?`<img src="${item.icon}" onerror="this.parentNode.innerHTML='${SLOT_ICO[item.slot]}'">`
+  var src=getIcon(item.icon);
+  return src
+    ?`<img src="${src}" onerror="this.parentNode.innerHTML=SLOT_ICO[item.slot]">` 
     :SLOT_ICO[item.slot];
 }
 function hl(t,q){if(!q)return t;const i=t.toLowerCase().indexOf(q.toLowerCase());if(i<0)return t;return t.slice(0,i)+`<span class="dd-hl">${t.slice(i,i+q.length)}</span>`+t.slice(i+q.length);}
