@@ -58,7 +58,7 @@ header{position:relative;z-index:20;height:80px;flex-shrink:0;display:flex;align
 
 /* PROFESSION SELECTOR */
 .prof-dd-wrap{position:relative;height:100%;display:flex;align-items:center;}
-.prof-dd-btn{display:flex;align-items:center;gap:10px;padding:8px 18px;height:auto;cursor:pointer;
+.prof-dd-btn{display:flex;align-items:center;gap:10px;padding:6px 14px;height:auto;cursor:pointer;
   font-family:'Nunito','Segoe UI',system-ui,sans-serif;font-size:15px;font-weight:800;color:var(--acc-l);
   border-radius:10px;border:1.5px solid var(--acc-d);background:var(--acc-glow);
   transition:all .2s;white-space:nowrap;box-shadow:0 0 12px var(--acc-glow);}
@@ -71,7 +71,7 @@ header{position:relative;z-index:20;height:80px;flex-shrink:0;display:flex;align
 .prof-dd-name{font-size:16px;letter-spacing:.3px;}
 .prof-dd-arr{font-size:10px;color:var(--acc);transition:transform .2s;margin-left:4px;}
 .prof-dd-arr.open{transform:rotate(180deg);}
-.prof-dd-menu{position:absolute;top:calc(100% + 1px);left:0;min-width:240px;
+.prof-dd-menu{position:absolute;top:calc(100% + 8px);left:0;min-width:240px;z-index:500;
   background:#080b16;border:1px solid var(--brd2);border-radius:0 0 10px 10px;
   box-shadow:0 12px 40px #000000e0;z-index:9999;display:none;overflow:hidden;}
 .prof-dd-menu.open{display:block;}
@@ -511,13 +511,7 @@ body.light-mode .mod-tab{color:var(--t2);}
 .riselab-nav .nav-dropdown-menu .dd-sub { font-size: 11px; color: #4a5980; font-weight: 600; margin-top: 1px; }
 
 
-.craft-sub-header {
-  display: flex; align-items: center;
-  padding: 0 20px; height: 64px;
-  background: var(--bg2, #0d1117);
-  border-bottom: 1px solid var(--brd, rgba(255,255,255,0.07));
-  gap: 16px; flex-shrink: 0;
-}
+
 
 </style>
 <style>
@@ -573,7 +567,7 @@ header{position:relative;z-index:20;height:80px;flex-shrink:0;display:flex;align
 
 /* PROFESSION SELECTOR */
 .prof-dd-wrap{position:relative;height:100%;display:flex;align-items:center;}
-.prof-dd-btn{display:flex;align-items:center;gap:10px;padding:8px 18px;height:auto;cursor:pointer;
+.prof-dd-btn{display:flex;align-items:center;gap:10px;padding:6px 14px;height:auto;cursor:pointer;
   font-family:'Nunito','Segoe UI',system-ui,sans-serif;font-size:15px;font-weight:800;color:var(--acc-l);
   border-radius:10px;border:1.5px solid var(--acc-d);background:var(--acc-glow);
   transition:all .2s;white-space:nowrap;box-shadow:0 0 12px var(--acc-glow);}
@@ -586,7 +580,7 @@ header{position:relative;z-index:20;height:80px;flex-shrink:0;display:flex;align
 .prof-dd-name{font-size:16px;letter-spacing:.3px;}
 .prof-dd-arr{font-size:10px;color:var(--acc);transition:transform .2s;margin-left:4px;}
 .prof-dd-arr.open{transform:rotate(180deg);}
-.prof-dd-menu{position:absolute;top:calc(100% + 1px);left:0;min-width:240px;
+.prof-dd-menu{position:absolute;top:calc(100% + 8px);left:0;min-width:240px;z-index:500;
   background:#080b16;border:1px solid var(--brd2);border-radius:0 0 10px 10px;
   box-shadow:0 12px 40px #000000e0;z-index:9999;display:none;overflow:hidden;}
 .prof-dd-menu.open{display:block;}
@@ -994,68 +988,7 @@ body.light-mode .mod-tab{color:var(--t2);}
     <a href="lifeskills.html">Life Skills</a>
   </div>
 </nav>
-<div class="craft-sub-header" id="craftSubHeader">
-  
-  <div class="prof-dd-wrap" id="profDdWrap">
-    <div class="prof-dd-btn placeholder" id="profDdBtn" onclick="toggleProfDD()">
-      <span class="prof-dd-icon" id="profDdIcon" style="background:var(--card2);border:1px solid var(--brd2);"><span style="font-size:20px">⚒</span></span>
-      <span class="prof-dd-name" id="profDdName" style="color:var(--t2);letter-spacing:.5px;">Meslek Seç</span>
-      <span class="prof-dd-arr" id="profDdArr">▾</span>
-    </div>
-    <div class="prof-dd-menu" id="profDdMenu">
-<div class="prof-dd-item" id="profItem_carpentry" onclick="selectProf('carpentry')">
-        <span class="pdi-icon"><img src="" id="pdi_carpentry"" style="width:32px;height:32px;object-fit:contain;image-rendering:pixelated;"></span>
-        <div class="pdi-info"><div class="pdi-name">Carpentry</div><div class="pdi-sub">Ahşap işleme • Lv.41</div></div>
-        <span class="pdi-check" style="opacity:0">✓</span>
-      </div>
-<div class="prof-dd-item active" id="profItem_smelting" onclick="selectProf('smelting')">
-        <span class="pdi-icon"><img src="" id="pdi_smelting"" style="width:32px;height:32px;object-fit:contain;image-rendering:pixelated;"></span>
-        <div class="pdi-info"><div class="pdi-name">Smelting</div><div class="pdi-sub">Metal eritme • Lv.41</div></div>
-        <span class="pdi-check">✓</span>
-      </div>
-<div class="prof-dd-item" id="profItem_stonemasonry" onclick="selectProf('stonemasonry')">
-        <span class="pdi-icon"><img src="" id="pdi_stonemasonry"" style="width:32px;height:32px;object-fit:contain;image-rendering:pixelated;"></span>
-        <div class="pdi-info"><div class="pdi-name">Stonemasonry</div><div class="pdi-sub">Taş işleme • Lv.41</div></div>
-        <span class="pdi-check" style="opacity:0">✓</span>
-      </div>
-<div class="prof-dd-item" id="profItem_jewelcrafting" onclick="selectProf('jewelcrafting')">
-        <span class="pdi-icon"><img src="" id="pdi_jewelcrafting"" style="width:32px;height:32px;object-fit:contain;image-rendering:pixelated;"></span>
-        <div class="pdi-info"><div class="pdi-name">Jewel Crafting</div><div class="pdi-sub">Mücevher işleme • Lv.41</div></div>
-        <span class="pdi-check" style="opacity:0">✓</span>
-      </div>
-<div class="prof-dd-item" id="profItem_cooking" onclick="selectProf('cooking')">
-        <span class="pdi-icon"><img src="" id="pdi_cooking"" style="width:32px;height:32px;object-fit:contain;image-rendering:pixelated;"></span>
-        <div class="pdi-info"><div class="pdi-name">Cooking</div><div class="pdi-sub">Yemek & İçecek • Lv.41</div></div>
-        <span class="pdi-check" style="opacity:0">✓</span>
-      </div>
-<div class="prof-dd-item" id="profItem_tailoring" onclick="selectProf('tailoring')">
-        <span class="pdi-icon"><img src="" id="pdi_tailoring"" style="width:32px;height:32px;object-fit:contain;image-rendering:pixelated;"></span>
-        <div class="pdi-info"><div class="pdi-name">Tailoring</div><div class="pdi-sub">Kumaş & Deri zırh • Lv.41</div></div>
-        <span class="pdi-check" style="opacity:0">✓</span>
-      </div>
-<div class="prof-dd-item" id="profItem_leatherworking" onclick="selectProf('leatherworking')">
-        <span class="pdi-icon"><img src="" id="pdi_leatherworking"" style="width:32px;height:32px;object-fit:contain;image-rendering:pixelated;"></span>
-        <div class="pdi-info"><div class="pdi-name">Leatherworking</div><div class="pdi-sub">Deri işleme • Lv.41</div></div>
-        <span class="pdi-check" style="opacity:0">✓</span>
-      </div>
-<div class="prof-dd-item" id="profItem_alchemy" onclick="selectProf('alchemy')">
-        <span class="pdi-icon"><img src="" id="pdi_alchemy"" style="width:32px;height:32px;object-fit:contain;image-rendering:pixelated;"></span>
-        <div class="pdi-info"><div class="pdi-name">Alchemy</div><div class="pdi-sub">İksir & Potion • Lv.41</div></div>
-        <span class="pdi-check" style="opacity:0">✓</span>
-      </div>
-<div class="prof-dd-item" id="profItem_armorsmithing" onclick="selectProf('armorsmithing')">
-        <span class="pdi-icon"><img src="" id="pdi_armorsmithing"" style="width:32px;height:32px;object-fit:contain;image-rendering:pixelated;"></span>
-        <div class="pdi-info"><div class="pdi-name">Armor Smithing</div><div class="pdi-sub">Zırh üretimi • Lv.41</div></div>
-        <span class="pdi-check" style="opacity:0">✓</span>
-      </div>
-<div class="prof-dd-item" id="profItem_weaponsmithing" onclick="selectProf('weaponsmithing')">
-        <span class="pdi-icon"><img src="" id="pdi_weaponsmithing"" style="width:32px;height:32px;object-fit:contain;image-rendering:pixelated;"></span>
-        <div class="pdi-info"><div class="pdi-name">Weapon Smithing</div><div class="pdi-sub">Silah üretimi • Lv.41</div></div>
-        <span class="pdi-check" style="opacity:0">✓</span>
-      </div>
-    </div>
-  </div>
-</div>
+
 
 <div class="layout">
 
@@ -1167,6 +1100,65 @@ body.light-mode .mod-tab{color:var(--t2);}
 
   <div class="main">
     <div class="add-bar">
+      <div class="prof-dd-wrap" id="profDdWrap">
+    <div class="prof-dd-btn placeholder" id="profDdBtn" onclick="toggleProfDD()">
+      <span class="prof-dd-icon" id="profDdIcon" style="background:var(--card2);border:1px solid var(--brd2);"><span style="font-size:20px">⚒</span></span>
+      <span class="prof-dd-name" id="profDdName" style="color:var(--t2);letter-spacing:.5px;">Meslek Seç</span>
+      <span class="prof-dd-arr" id="profDdArr">▾</span>
+    </div>
+    <div class="prof-dd-menu" id="profDdMenu">
+<div class="prof-dd-item" id="profItem_carpentry" onclick="selectProf('carpentry')">
+        <span class="pdi-icon"><img src="" id="pdi_carpentry"" style="width:32px;height:32px;object-fit:contain;image-rendering:pixelated;"></span>
+        <div class="pdi-info"><div class="pdi-name">Carpentry</div><div class="pdi-sub">Ahşap işleme • Lv.41</div></div>
+        <span class="pdi-check" style="opacity:0">✓</span>
+      </div>
+<div class="prof-dd-item active" id="profItem_smelting" onclick="selectProf('smelting')">
+        <span class="pdi-icon"><img src="" id="pdi_smelting"" style="width:32px;height:32px;object-fit:contain;image-rendering:pixelated;"></span>
+        <div class="pdi-info"><div class="pdi-name">Smelting</div><div class="pdi-sub">Metal eritme • Lv.41</div></div>
+        <span class="pdi-check">✓</span>
+      </div>
+<div class="prof-dd-item" id="profItem_stonemasonry" onclick="selectProf('stonemasonry')">
+        <span class="pdi-icon"><img src="" id="pdi_stonemasonry"" style="width:32px;height:32px;object-fit:contain;image-rendering:pixelated;"></span>
+        <div class="pdi-info"><div class="pdi-name">Stonemasonry</div><div class="pdi-sub">Taş işleme • Lv.41</div></div>
+        <span class="pdi-check" style="opacity:0">✓</span>
+      </div>
+<div class="prof-dd-item" id="profItem_jewelcrafting" onclick="selectProf('jewelcrafting')">
+        <span class="pdi-icon"><img src="" id="pdi_jewelcrafting"" style="width:32px;height:32px;object-fit:contain;image-rendering:pixelated;"></span>
+        <div class="pdi-info"><div class="pdi-name">Jewel Crafting</div><div class="pdi-sub">Mücevher işleme • Lv.41</div></div>
+        <span class="pdi-check" style="opacity:0">✓</span>
+      </div>
+<div class="prof-dd-item" id="profItem_cooking" onclick="selectProf('cooking')">
+        <span class="pdi-icon"><img src="" id="pdi_cooking"" style="width:32px;height:32px;object-fit:contain;image-rendering:pixelated;"></span>
+        <div class="pdi-info"><div class="pdi-name">Cooking</div><div class="pdi-sub">Yemek & İçecek • Lv.41</div></div>
+        <span class="pdi-check" style="opacity:0">✓</span>
+      </div>
+<div class="prof-dd-item" id="profItem_tailoring" onclick="selectProf('tailoring')">
+        <span class="pdi-icon"><img src="" id="pdi_tailoring"" style="width:32px;height:32px;object-fit:contain;image-rendering:pixelated;"></span>
+        <div class="pdi-info"><div class="pdi-name">Tailoring</div><div class="pdi-sub">Kumaş & Deri zırh • Lv.41</div></div>
+        <span class="pdi-check" style="opacity:0">✓</span>
+      </div>
+<div class="prof-dd-item" id="profItem_leatherworking" onclick="selectProf('leatherworking')">
+        <span class="pdi-icon"><img src="" id="pdi_leatherworking"" style="width:32px;height:32px;object-fit:contain;image-rendering:pixelated;"></span>
+        <div class="pdi-info"><div class="pdi-name">Leatherworking</div><div class="pdi-sub">Deri işleme • Lv.41</div></div>
+        <span class="pdi-check" style="opacity:0">✓</span>
+      </div>
+<div class="prof-dd-item" id="profItem_alchemy" onclick="selectProf('alchemy')">
+        <span class="pdi-icon"><img src="" id="pdi_alchemy"" style="width:32px;height:32px;object-fit:contain;image-rendering:pixelated;"></span>
+        <div class="pdi-info"><div class="pdi-name">Alchemy</div><div class="pdi-sub">İksir & Potion • Lv.41</div></div>
+        <span class="pdi-check" style="opacity:0">✓</span>
+      </div>
+<div class="prof-dd-item" id="profItem_armorsmithing" onclick="selectProf('armorsmithing')">
+        <span class="pdi-icon"><img src="" id="pdi_armorsmithing"" style="width:32px;height:32px;object-fit:contain;image-rendering:pixelated;"></span>
+        <div class="pdi-info"><div class="pdi-name">Armor Smithing</div><div class="pdi-sub">Zırh üretimi • Lv.41</div></div>
+        <span class="pdi-check" style="opacity:0">✓</span>
+      </div>
+<div class="prof-dd-item" id="profItem_weaponsmithing" onclick="selectProf('weaponsmithing')">
+        <span class="pdi-icon"><img src="" id="pdi_weaponsmithing"" style="width:32px;height:32px;object-fit:contain;image-rendering:pixelated;"></span>
+        <div class="pdi-info"><div class="pdi-name">Weapon Smithing</div><div class="pdi-sub">Silah üretimi • Lv.41</div></div>
+        <span class="pdi-check" style="opacity:0">✓</span>
+      </div>
+    </div>
+  </div>
       <div class="srch-wrap" id="m1SrchWrap">
         <input type="text" class="srch-inp" id="m1Srch" placeholder="Eşya adı ile ara..." oninput="m1FilterDD()" onfocus="m1OpenDD()" autocomplete="off">
       </div>
