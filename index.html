@@ -472,7 +472,28 @@ footer {
 .riselab-nav .nav-dropdown-menu .dd-name { font-size: 13px; font-weight: 800; color: inherit; }
 .riselab-nav .nav-dropdown-menu .dd-sub { font-size: 11px; color: #4a5980; font-weight: 600; margin-top: 1px; }
 
+
+/* Hero arka plan görseli - images.js'den yüklenir */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-size: cover;
+  background-position: center -80px;
+  background-repeat: no-repeat;
+  opacity: 0.22;
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 55%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 55%, rgba(0,0,0,0) 100%);
+  pointer-events: none;
+}
+.hero > * {
+  position: relative;
+  z-index: 1;
+}
+
 </style>
+<script src="images.js"></script>
 </head>
 <body>
 
@@ -837,5 +858,16 @@ document.querySelector('.theme-btn').addEventListener('click', () => {
   document.body.classList.toggle('light');
 });
 </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  if (window.IMAGES && window.IMAGES['hero_bg']) {
+    var style = document.createElement('style');
+    style.textContent = '.hero::before { background-image: url("' + window.IMAGES['hero_bg'] + '"); }';
+    document.head.appendChild(style);
+  }
+});
+</script>
+
 </body>
 </html>
