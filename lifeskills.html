@@ -62,7 +62,7 @@ nav a.active{color:var(--acc);background:var(--card);}
 
 /* İçerik */
 .content{min-width:0;padding:0 48px 0 32px;}
-.guide-section{margin-bottom:56px;scroll-margin-top:90px;}
+.guide-section{margin-bottom:56px;scroll-margin-top:90px;display:flex;flex-direction:column;}
 .guide-section-header{display:flex;align-items:center;gap:14px;margin-bottom:24px;padding-bottom:16px;border-bottom:2px solid var(--brd);}
 .guide-section-icon{font-size:32px;}
 .guide-section-title{font-family:'Nunito',sans-serif;font-weight:900;font-size:26px;color:var(--t1);}
@@ -97,7 +97,7 @@ nav a.active{color:var(--acc);background:var(--card);}
 .prose strong{color:var(--t1);font-weight:700;}
 
 /* Bölüm ayırıcı başlık */
-.section-divider{font-family:'Nunito',sans-serif;font-weight:900;font-size:15px;color:var(--acc);margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--brd);letter-spacing:.3px;}
+.section-divider{font-family:'Nunito',sans-serif;font-weight:900;font-size:15px;color:var(--acc);margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--brd);letter-spacing:.3px;display:block;width:100%;}
 
 /* Düz tablo */
 .flat-table{display:flex;flex-direction:column;border:1px solid var(--brd);border-radius:12px;overflow:hidden;margin-bottom:8px;}
@@ -187,7 +187,7 @@ body.en .tr-only{display:none;}
 body.en .en-only{display:initial;}
 
 /* Craft kartları */
-.craft-level-group{margin-bottom:28px;}
+.craft-level-group{margin-bottom:28px;width:100%;display:block;}
 .craft-level-badge{display:inline-flex;align-items:center;gap:8px;background:var(--card2);border:2px solid var(--brd2);border-radius:20px;padding:6px 18px;font-size:13px;font-weight:900;color:var(--acc);margin-bottom:14px;letter-spacing:.3px;}
 .craft-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;}
 .craft-card{background:var(--card);border:2px solid var(--brd);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;gap:0;}
