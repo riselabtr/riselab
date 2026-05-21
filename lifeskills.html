@@ -52,19 +52,14 @@ nav a.active{color:var(--acc);background:var(--card);}
 
 /* Sidebar */
 .sidebar{position:sticky;top:80px;display:flex;flex-direction:column;gap:8px;padding:0;}
-.sidebar-label{font-size:11px;font-weight:900;color:var(--t3);letter-spacing:1px;text-transform:uppercase;padding:4px 16px 4px 0;margin-top:8px;}
 .sidebar-box{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--t2);font-family:'Nunito',sans-serif;font-weight:900;font-size:16px;padding:14px 16px;border-radius:0 14px 14px 0;border:2px solid var(--brd);border-left:none;background:var(--card);transition:all .15s;}
 .sidebar-box:hover{color:var(--t1);border-color:var(--brd2);background:var(--card2);}
 .sidebar-box.active{color:var(--acc);border-color:var(--acc-l);background:var(--card2);}
-.sidebar-box.coming{opacity:0.45;cursor:default;pointer-events:none;}
-.sidebar-box-icon{font-size:20px;flex-shrink:0;}
-.sidebar-divider{height:2px;background:var(--brd);margin:4px 16px 4px 0;}
+.sidebar-box.sidebar-box-icon{font-size:20px;flex-shrink:0;}
 
 /* İçerik */
 .content{min-width:0;padding:0 48px 0 32px;}
 .guide-section{margin-bottom:56px;scroll-margin-top:90px;display:block;overflow:hidden;}
-#panel-crafting,#panel-gathering{display:block;width:100%;}
-#panel-crafting .guide-section,#panel-gathering .guide-section{display:block;width:100%;}
 .guide-section-header{display:flex;align-items:center;gap:14px;margin-bottom:24px;padding-bottom:16px;border-bottom:2px solid var(--brd);}
 .guide-section-icon{font-size:32px;}
 .guide-section-title{font-family:'Nunito',sans-serif;font-weight:900;font-size:26px;color:var(--t1);}
@@ -77,18 +72,7 @@ nav a.active{color:var(--acc);background:var(--card);}
 .tab-btn:hover:not(.active){color:var(--t1);background:var(--card2);}
 
 /* Meslek kartı */
-.skill-card{background:var(--card);border:2px solid var(--brd);border-radius:20px;padding:28px;margin-bottom:20px;position:relative;overflow:hidden;}
-.skill-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--acc),var(--energy));}
-.skill-card-header{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
-.skill-card-icon{font-size:28px;}
-.skill-card-name{font-family:'Nunito',sans-serif;font-weight:900;font-size:22px;color:var(--t1);}
-.skill-card-body{font-size:15px;color:var(--t2);line-height:1.8;font-weight:500;}
-.skill-card-body p{margin-bottom:10px;}
-.skill-card-body p:last-child{margin-bottom:0;}
-.skill-card-body strong{color:var(--t1);font-weight:700;}
 
-/* Placeholder */
-.coming-soon{display:flex;align-items:center;gap:10px;background:var(--card);border:2px dashed var(--brd);border-radius:14px;padding:20px 24px;color:var(--t3);font-size:14px;font-weight:700;}
 
 /* Petunya notu */
 .petunya-note{background:linear-gradient(135deg,rgba(155,92,219,0.08),rgba(155,92,219,0.03));border:2px solid rgba(155,92,219,0.2);border-radius:12px;padding:14px 16px;font-size:14px;color:var(--t1);line-height:1.6;display:flex;gap:10px;align-items:flex-start;font-weight:500;margin-top:16px;}
@@ -125,30 +109,17 @@ nav a.active{color:var(--acc);background:var(--card);}
 .required-tag{font-size:13px;color:var(--t3);font-weight:600;margin:0 0 20px;padding:8px 14px;background:var(--card);border-left:3px solid var(--acc);border-radius:0 8px 8px 0;display:block;}
 .required-tag strong{color:var(--acc-l);}
 
-/* Görsel placeholder */
-.img-placeholder{display:flex;align-items:center;justify-content:center;gap:8px;border:2px dashed var(--brd);border-radius:10px;padding:18px;margin:12px 0;color:var(--t3);font-size:13px;font-weight:700;}
 
-/* Alt başlık */
-.guide-subsection{margin:24px 0;}
-.guide-subsection-title{font-family:'Nunito',sans-serif;font-weight:900;font-size:17px;color:var(--t1);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
 
 /* Tablo */
-.skill-table{display:flex;flex-direction:column;gap:2px;}
-.skill-table-row{display:grid;grid-template-columns:2fr 2fr 2fr;gap:8px;padding:10px 14px;border-radius:8px;font-size:13px;font-weight:600;color:var(--t2);}
 .skill-table-row.header{background:var(--card2);color:var(--acc);font-weight:900;font-size:12px;letter-spacing:.4px;}
 .skill-table-row:not(.header):nth-child(even){background:var(--card);}
 .skill-table-row:not(.header):nth-child(odd){background:transparent;}
 
-/* Bilgi kutusu ipucu */
-.info-tip{font-size:13px;color:var(--t2);background:var(--card);border:2px solid var(--brd);border-radius:10px;padding:12px 16px;margin-top:12px;font-weight:600;line-height:1.6;}
 
 /* Kazı alanı kartları */
-.excavation-card{background:var(--card);border:2px solid var(--brd);border-radius:16px;overflow:hidden;margin-bottom:12px;}
-.excavation-card.special{border-color:var(--acc-l);background:linear-gradient(135deg,var(--card),rgba(155,92,219,0.05));}
 .exc-header{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:2px solid var(--brd);background:var(--card2);}
-.excavation-card.special .exc-header{background:linear-gradient(90deg,rgba(155,92,219,0.12),var(--card2));}
 .exc-name{font-family:'Nunito',sans-serif;font-weight:900;font-size:15px;color:var(--t1);}
-.excavation-card.special .exc-name{color:var(--acc);}
 .exc-location{font-size:13px;color:var(--t3);font-weight:700;}
 .exc-body{padding:14px 18px;display:flex;flex-direction:column;gap:8px;}
 .exc-row{display:flex;gap:12px;font-size:13px;color:var(--t2);font-weight:600;line-height:1.5;}
@@ -176,7 +147,6 @@ nav a.active{color:var(--acc);background:var(--card);}
 .hc-use-tag.alchemy{background:rgba(64,200,120,0.1);color:#40c878;border-color:rgba(64,200,120,0.25);}
 .harvest-note{font-size:12px;color:var(--t3);font-weight:600;line-height:1.5;margin-top:2px;font-style:italic;}
 
-/* Required tag */
 /* Footer */
 footer{position:relative;z-index:1;border-top:2px solid var(--brd);padding:24px 48px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
 .footer-left{font-size:13px;color:var(--t3);line-height:1.7;font-weight:600;}
@@ -200,7 +170,6 @@ body.en .en-only{display:initial;}
 .craft-arrow{text-align:center;font-size:11px;color:var(--t3);font-weight:700;padding:4px 0;letter-spacing:1px;}
 .craft-inputs{padding:10px 14px;display:flex;flex-direction:column;gap:6px;}
 .craft-input-row{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--t2);}
-.craft-img-placeholder{width:32px;height:32px;background:var(--bg2);border:1px solid var(--brd);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;}
 .craft-meta{display:flex;flex-wrap:wrap;gap:6px;padding:6px 14px 8px;border-top:1px solid var(--brd);margin-top:auto;}
 .craft-meta-item{font-size:10px;font-weight:700;color:var(--t3);display:flex;align-items:center;gap:3px;}
 .craft-meta-item span{color:var(--t2);}
@@ -215,14 +184,6 @@ body.en .en-only{display:initial;}
 .xp-row span:nth-child(odd){color:var(--acc);font-weight:800;font-size:12px;}
 
 /* Ana ekran */
-
-
-
-
-
-
-
-
 .home-professions{margin-bottom:32px;}
 .home-professions h3{font-family:'Nunito',sans-serif;font-weight:900;font-size:13px;color:var(--t3);margin-bottom:12px;letter-spacing:.5px;text-transform:uppercase;}
 .home-prof-grid{display:flex;flex-wrap:wrap;gap:8px;}
@@ -1740,7 +1701,7 @@ body.en .en-only{display:initial;}
               <div class="craft-arrow">←</div>
               <div class="craft-inputs">
                 <div class="craft-input-row">
-                  <div class="craft-img-placeholder">📷</div>
+                  <img src="" data-icon="holy_wood" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" />
                   <span>Holy Wood ×5</span>
                 </div>
               </div>
@@ -4971,7 +4932,7 @@ body.en .en-only{display:initial;}
               <div class="craft-output"><img src="" data-icon="enh_mage_elite_gloves" style="width:32px;height:32px;object-fit:contain;border-radius:4px;" /><div class="craft-output-name">Enh. Mage Elite Gloves</div><div class="craft-output-qty">×1</div></div>
               <div class="craft-arrow">←</div>
               <div class="craft-inputs">
-                <div class="craft-input-row"><img src="" data-icon="enh_mage_elite_gloves" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Mage Elite Gloves (+1) ×1</span></div>
+                <div class="craft-input-row"><img src="" data-icon="base_mage_elite_gloves" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Mage Elite Gloves (+1) ×1</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_stag" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Stag) ×5</span></div>
                 <div class="craft-input-row"><img src="" data-icon="copper_plate" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Copper Plate ×4</span></div>
               </div>
@@ -4981,7 +4942,7 @@ body.en .en-only{display:initial;}
               <div class="craft-output"><img src="" data-icon="enh_priest_elite_gauntlets" style="width:32px;height:32px;object-fit:contain;border-radius:4px;" /><div class="craft-output-name">Enh. Priest Elite Gauntlets</div><div class="craft-output-qty">×1</div></div>
               <div class="craft-arrow">←</div>
               <div class="craft-inputs">
-                <div class="craft-input-row"><img src="" data-icon="enh_priest_elite_gauntlets" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Priest Elite Gauntlets (+1) ×1</span></div>
+                <div class="craft-input-row"><img src="" data-icon="base_priest_elite_gauntlets" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Priest Elite Gauntlets (+1) ×1</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_stag" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Stag) ×5</span></div>
                 <div class="craft-input-row"><img src="" data-icon="copper_plate" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Copper Plate ×4</span></div>
               </div>
@@ -4991,7 +4952,7 @@ body.en .en-only{display:initial;}
               <div class="craft-output"><img src="" data-icon="enh_rogue_elite_gauntlets" style="width:32px;height:32px;object-fit:contain;border-radius:4px;" /><div class="craft-output-name">Enh. Rogue Elite Gauntlets</div><div class="craft-output-qty">×1</div></div>
               <div class="craft-arrow">←</div>
               <div class="craft-inputs">
-                <div class="craft-input-row"><img src="" data-icon="enh_rogue_elite_gauntlets" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Rogue Elite Gauntlets (+1) ×1</span></div>
+                <div class="craft-input-row"><img src="" data-icon="base_rogue_elite_gauntlets" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Rogue Elite Gauntlets (+1) ×1</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_stag" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Stag) ×5</span></div>
                 <div class="craft-input-row"><img src="" data-icon="copper_plate" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Copper Plate ×4</span></div>
               </div>
@@ -5001,7 +4962,7 @@ body.en .en-only{display:initial;}
               <div class="craft-output"><img src="" data-icon="enh_warrior_elite_gauntlets" style="width:32px;height:32px;object-fit:contain;border-radius:4px;" /><div class="craft-output-name">Enh. Warrior Elite Gauntlets</div><div class="craft-output-qty">×1</div></div>
               <div class="craft-arrow">←</div>
               <div class="craft-inputs">
-                <div class="craft-input-row"><img src="" data-icon="enh_warrior_elite_gauntlets" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Warrior Elite Gauntlets (+1) ×1</span></div>
+                <div class="craft-input-row"><img src="" data-icon="base_warrior_elite_gauntlets" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Warrior Elite Gauntlets (+1) ×1</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_stag" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Stag) ×5</span></div>
                 <div class="craft-input-row"><img src="" data-icon="copper_plate" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Copper Plate ×4</span></div>
               </div>
@@ -5018,7 +4979,7 @@ body.en .en-only{display:initial;}
               <div class="craft-output"><img src="" data-icon="enh_mage_imperial_gloves" style="width:32px;height:32px;object-fit:contain;border-radius:4px;" /><div class="craft-output-name">Enh. Mage Imperial Gloves</div><div class="craft-output-qty">×1</div></div>
               <div class="craft-arrow">←</div>
               <div class="craft-inputs">
-                <div class="craft-input-row"><img src="" data-icon="enh_mage_imperial_gloves" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Mage Imperial Gloves (+1) ×1</span></div>
+                <div class="craft-input-row"><img src="" data-icon="base_mage_imperial_gloves" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Mage Imperial Gloves (+1) ×1</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_stag" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Stag) ×4</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_boar" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Boar) ×2</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_zebra" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Zebra) ×1</span></div>
@@ -5031,7 +4992,7 @@ body.en .en-only{display:initial;}
               <div class="craft-output"><img src="" data-icon="enh_priest_imperial_gauntlets" style="width:32px;height:32px;object-fit:contain;border-radius:4px;" /><div class="craft-output-name">Enh. Priest Imperial Gauntlets</div><div class="craft-output-qty">×1</div></div>
               <div class="craft-arrow">←</div>
               <div class="craft-inputs">
-                <div class="craft-input-row"><img src="" data-icon="enh_priest_imperial_gauntlets" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Priest Imperial Gauntlets (+1) ×1</span></div>
+                <div class="craft-input-row"><img src="" data-icon="base_priest_imperial_gauntlets" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Priest Imperial Gauntlets (+1) ×1</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_stag" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Stag) ×4</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_boar" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Boar) ×2</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_zebra" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Zebra) ×1</span></div>
@@ -5044,7 +5005,7 @@ body.en .en-only{display:initial;}
               <div class="craft-output"><img src="" data-icon="enh_rogue_imperial_gauntlets" style="width:32px;height:32px;object-fit:contain;border-radius:4px;" /><div class="craft-output-name">Enh. Rogue Imperial Gauntlets</div><div class="craft-output-qty">×1</div></div>
               <div class="craft-arrow">←</div>
               <div class="craft-inputs">
-                <div class="craft-input-row"><img src="" data-icon="enh_rogue_imperial_gauntlets" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Rogue Imperial Gauntlets (+1) ×1</span></div>
+                <div class="craft-input-row"><img src="" data-icon="base_rogue_imperial_gauntlets" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Rogue Imperial Gauntlets (+1) ×1</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_stag" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Stag) ×4</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_boar" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Boar) ×2</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_zebra" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Zebra) ×1</span></div>
@@ -5057,7 +5018,7 @@ body.en .en-only{display:initial;}
               <div class="craft-output"><img src="" data-icon="enh_warrior_imperial_gauntlets" style="width:32px;height:32px;object-fit:contain;border-radius:4px;" /><div class="craft-output-name">Enh. Warrior Imperial Gauntlets</div><div class="craft-output-qty">×1</div></div>
               <div class="craft-arrow">←</div>
               <div class="craft-inputs">
-                <div class="craft-input-row"><img src="" data-icon="enh_warrior_imperial_gauntlets" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Warrior Imperial Gauntlets (+1) ×1</span></div>
+                <div class="craft-input-row"><img src="" data-icon="base_warrior_imperial_gauntlets" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Warrior Imperial Gauntlets (+1) ×1</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_stag" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Stag) ×4</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_boar" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Boar) ×2</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_zebra" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Zebra) ×1</span></div>
@@ -5077,7 +5038,7 @@ body.en .en-only{display:initial;}
               <div class="craft-output"><img src="" data-icon="enh_mage_elite_helm" style="width:32px;height:32px;object-fit:contain;border-radius:4px;" /><div class="craft-output-name">Enh. Mage Elite Helm</div><div class="craft-output-qty">×1</div></div>
               <div class="craft-arrow">←</div>
               <div class="craft-inputs">
-                <div class="craft-input-row"><img src="" data-icon="enh_mage_elite_helm" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Mage Elite Helm (+1) ×1</span></div>
+                <div class="craft-input-row"><img src="" data-icon="base_mage_elite_helm" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Mage Elite Helm (+1) ×1</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_boar" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Boar) ×4</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_tiger" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Tiger) ×3</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_wolf" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Wolf) ×1</span></div>
@@ -5090,7 +5051,7 @@ body.en .en-only{display:initial;}
               <div class="craft-output"><img src="" data-icon="enh_priest_elite_helmet" style="width:32px;height:32px;object-fit:contain;border-radius:4px;" /><div class="craft-output-name">Enh. Priest Elite Helmet</div><div class="craft-output-qty">×1</div></div>
               <div class="craft-arrow">←</div>
               <div class="craft-inputs">
-                <div class="craft-input-row"><img src="" data-icon="enh_priest_elite_helmet" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Priest Elite Helmet (+1) ×1</span></div>
+                <div class="craft-input-row"><img src="" data-icon="base_priest_elite_helmet" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Priest Elite Helmet (+1) ×1</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_boar" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Boar) ×4</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_tiger" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Tiger) ×3</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_wolf" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Wolf) ×1</span></div>
@@ -5103,7 +5064,7 @@ body.en .en-only{display:initial;}
               <div class="craft-output"><img src="" data-icon="enh_rogue_elite_bascinet" style="width:32px;height:32px;object-fit:contain;border-radius:4px;" /><div class="craft-output-name">Enh. Rogue Elite Bascinet</div><div class="craft-output-qty">×1</div></div>
               <div class="craft-arrow">←</div>
               <div class="craft-inputs">
-                <div class="craft-input-row"><img src="" data-icon="enh_rogue_elite_bascinet" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Rogue Elite Bascinet (+1) ×1</span></div>
+                <div class="craft-input-row"><img src="" data-icon="base_rogue_elite_bascinet" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Rogue Elite Bascinet (+1) ×1</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_boar" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Boar) ×4</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_tiger" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Tiger) ×3</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_wolf" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Wolf) ×1</span></div>
@@ -5116,7 +5077,7 @@ body.en .en-only{display:initial;}
               <div class="craft-output"><img src="" data-icon="enh_warrior_elite_helmet" style="width:32px;height:32px;object-fit:contain;border-radius:4px;" /><div class="craft-output-name">Enh. Warrior Elite Helmet</div><div class="craft-output-qty">×1</div></div>
               <div class="craft-arrow">←</div>
               <div class="craft-inputs">
-                <div class="craft-input-row"><img src="" data-icon="enh_warrior_elite_helmet" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Warrior Elite Helmet (+1) ×1</span></div>
+                <div class="craft-input-row"><img src="" data-icon="base_warrior_elite_helmet" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Warrior Elite Helmet (+1) ×1</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_boar" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Boar) ×4</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_tiger" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Tiger) ×3</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_wolf" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Wolf) ×1</span></div>
@@ -5135,7 +5096,7 @@ body.en .en-only{display:initial;}
               <div class="craft-output"><img src="" data-icon="enh_mage_imperial_helm" style="width:32px;height:32px;object-fit:contain;border-radius:4px;" /><div class="craft-output-name">Enh. Mage Imperial Helm</div><div class="craft-output-qty">×1</div></div>
               <div class="craft-arrow">←</div>
               <div class="craft-inputs">
-                <div class="craft-input-row"><img src="" data-icon="enh_mage_imperial_helm" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Mage Imperial Helm (+1) ×1</span></div>
+                <div class="craft-input-row"><img src="" data-icon="base_mage_imperial_helm" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Mage Imperial Helm (+1) ×1</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_boar" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Boar) ×4</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_tiger" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Tiger) ×4</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_wolf" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Wolf) ×1</span></div>
@@ -5148,7 +5109,7 @@ body.en .en-only{display:initial;}
               <div class="craft-output"><img src="" data-icon="enh_priest_imperial_helmet" style="width:32px;height:32px;object-fit:contain;border-radius:4px;" /><div class="craft-output-name">Enh. Priest Imperial Helmet</div><div class="craft-output-qty">×1</div></div>
               <div class="craft-arrow">←</div>
               <div class="craft-inputs">
-                <div class="craft-input-row"><img src="" data-icon="enh_priest_imperial_helmet" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Priest Imperial Helmet (+1) ×1</span></div>
+                <div class="craft-input-row"><img src="" data-icon="base_priest_imperial_helmet" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Priest Imperial Helmet (+1) ×1</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_boar" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Boar) ×4</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_tiger" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Tiger) ×4</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_wolf" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Wolf) ×1</span></div>
@@ -5161,7 +5122,7 @@ body.en .en-only{display:initial;}
               <div class="craft-output"><img src="" data-icon="enh_rogue_imperial_helmet" style="width:32px;height:32px;object-fit:contain;border-radius:4px;" /><div class="craft-output-name">Enh. Rogue Imperial Helmet</div><div class="craft-output-qty">×1</div></div>
               <div class="craft-arrow">←</div>
               <div class="craft-inputs">
-                <div class="craft-input-row"><img src="" data-icon="enh_rogue_imperial_helmet" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Rogue Imperial Helmet (+1) ×1</span></div>
+                <div class="craft-input-row"><img src="" data-icon="base_rogue_imperial_helmet" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Rogue Imperial Helmet (+1) ×1</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_boar" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Boar) ×4</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_tiger" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Tiger) ×4</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_wolf" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Wolf) ×1</span></div>
@@ -5174,7 +5135,7 @@ body.en .en-only{display:initial;}
               <div class="craft-output"><img src="" data-icon="enh_warrior_imperial_helmet" style="width:32px;height:32px;object-fit:contain;border-radius:4px;" /><div class="craft-output-name">Enh. Warrior Imperial Helmet</div><div class="craft-output-qty">×1</div></div>
               <div class="craft-arrow">←</div>
               <div class="craft-inputs">
-                <div class="craft-input-row"><img src="" data-icon="enh_warrior_imperial_helmet" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Warrior Imperial Helmet (+1) ×1</span></div>
+                <div class="craft-input-row"><img src="" data-icon="base_warrior_imperial_helmet" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Warrior Imperial Helmet (+1) ×1</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_boar" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Boar) ×4</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_tiger" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Tiger) ×4</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_wolf" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Wolf) ×1</span></div>
@@ -5193,7 +5154,7 @@ body.en .en-only{display:initial;}
               <div class="craft-output"><img src="" data-icon="enh_mage_elite_pants" style="width:32px;height:32px;object-fit:contain;border-radius:4px;" /><div class="craft-output-name">Enh. Mage Elite Pants</div><div class="craft-output-qty">×1</div></div>
               <div class="craft-arrow">←</div>
               <div class="craft-inputs">
-                <div class="craft-input-row"><img src="" data-icon="enh_mage_elite_pants" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Mage Elite Pants (+1) ×1</span></div>
+                <div class="craft-input-row"><img src="" data-icon="base_mage_elite_pants" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Mage Elite Pants (+1) ×1</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_boar" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Boar) ×4</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_tiger" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Tiger) ×3</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_bear" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Bear) ×1</span></div>
@@ -5207,7 +5168,7 @@ body.en .en-only{display:initial;}
               <div class="craft-output"><img src="" data-icon="enh_priest_elite_pants" style="width:32px;height:32px;object-fit:contain;border-radius:4px;" /><div class="craft-output-name">Enh. Priest Elite Pants</div><div class="craft-output-qty">×1</div></div>
               <div class="craft-arrow">←</div>
               <div class="craft-inputs">
-                <div class="craft-input-row"><img src="" data-icon="enh_priest_elite_pants" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Priest Elite Pants (+1) ×1</span></div>
+                <div class="craft-input-row"><img src="" data-icon="base_priest_elite_pants" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Priest Elite Pants (+1) ×1</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_boar" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Boar) ×4</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_tiger" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Tiger) ×3</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_bear" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Bear) ×1</span></div>
@@ -5221,7 +5182,7 @@ body.en .en-only{display:initial;}
               <div class="craft-output"><img src="" data-icon="enh_rogue_elite_tasset" style="width:32px;height:32px;object-fit:contain;border-radius:4px;" /><div class="craft-output-name">Enh. Rogue Elite Tasset</div><div class="craft-output-qty">×1</div></div>
               <div class="craft-arrow">←</div>
               <div class="craft-inputs">
-                <div class="craft-input-row"><img src="" data-icon="enh_rogue_elite_tasset" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Rogue Elite Tasset (+1) ×1</span></div>
+                <div class="craft-input-row"><img src="" data-icon="base_rogue_elite_tasset" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Rogue Elite Tasset (+1) ×1</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_boar" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Boar) ×4</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_tiger" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Tiger) ×3</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_bear" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Bear) ×1</span></div>
@@ -5235,7 +5196,7 @@ body.en .en-only{display:initial;}
               <div class="craft-output"><img src="" data-icon="enh_warrior_elite_tasset" style="width:32px;height:32px;object-fit:contain;border-radius:4px;" /><div class="craft-output-name">Enh. Warrior Elite Tasset</div><div class="craft-output-qty">×1</div></div>
               <div class="craft-arrow">←</div>
               <div class="craft-inputs">
-                <div class="craft-input-row"><img src="" data-icon="enh_warrior_elite_tasset" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Warrior Elite Tasset (+1) ×1</span></div>
+                <div class="craft-input-row"><img src="" data-icon="base_warrior_elite_tasset" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Warrior Elite Tasset (+1) ×1</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_boar" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Boar) ×4</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_tiger" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Tiger) ×3</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_bear" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Bear) ×1</span></div>
@@ -5256,7 +5217,7 @@ body.en .en-only{display:initial;}
               <div class="craft-output"><img src="" data-icon="enh_mage_imperial_pants" style="width:32px;height:32px;object-fit:contain;border-radius:4px;" /><div class="craft-output-name">Enh. Mage Imperial Pants</div><div class="craft-output-qty">×1</div></div>
               <div class="craft-arrow">←</div>
               <div class="craft-inputs">
-                <div class="craft-input-row"><img src="" data-icon="enh_mage_imperial_pants" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Mage Imperial Pants (+1) ×1</span></div>
+                <div class="craft-input-row"><img src="" data-icon="base_mage_imperial_pants" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Mage Imperial Pants (+1) ×1</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_boar" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Boar) ×3</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_tiger" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Tiger) ×3</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_bear" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Bear) ×2</span></div>
@@ -5271,7 +5232,7 @@ body.en .en-only{display:initial;}
               <div class="craft-output"><img src="" data-icon="enh_priest_imperial_tasset" style="width:32px;height:32px;object-fit:contain;border-radius:4px;" /><div class="craft-output-name">Enh. Priest Imperial Tasset</div><div class="craft-output-qty">×1</div></div>
               <div class="craft-arrow">←</div>
               <div class="craft-inputs">
-                <div class="craft-input-row"><img src="" data-icon="enh_priest_imperial_tasset" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Priest Imperial Tasset (+1) ×1</span></div>
+                <div class="craft-input-row"><img src="" data-icon="base_priest_imperial_tasset" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Priest Imperial Tasset (+1) ×1</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_boar" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Boar) ×3</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_tiger" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Tiger) ×3</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_bear" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Bear) ×2</span></div>
@@ -5286,7 +5247,7 @@ body.en .en-only{display:initial;}
               <div class="craft-output"><img src="" data-icon="enh_rogue_imperial_tasset" style="width:32px;height:32px;object-fit:contain;border-radius:4px;" /><div class="craft-output-name">Enh. Rogue Imperial Tasset</div><div class="craft-output-qty">×1</div></div>
               <div class="craft-arrow">←</div>
               <div class="craft-inputs">
-                <div class="craft-input-row"><img src="" data-icon="enh_rogue_imperial_tasset" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Rogue Imperial Tasset (+1) ×1</span></div>
+                <div class="craft-input-row"><img src="" data-icon="base_rogue_imperial_tasset" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Rogue Imperial Tasset (+1) ×1</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_boar" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Boar) ×3</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_tiger" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Tiger) ×3</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_bear" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Bear) ×2</span></div>
@@ -5301,7 +5262,7 @@ body.en .en-only{display:initial;}
               <div class="craft-output"><img src="" data-icon="enh_warrior_imperial_tasset" style="width:32px;height:32px;object-fit:contain;border-radius:4px;" /><div class="craft-output-name">Enh. Warrior Imperial Tasset</div><div class="craft-output-qty">×1</div></div>
               <div class="craft-arrow">←</div>
               <div class="craft-inputs">
-                <div class="craft-input-row"><img src="" data-icon="enh_warrior_imperial_tasset" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Warrior Imperial Tasset (+1) ×1</span></div>
+                <div class="craft-input-row"><img src="" data-icon="base_warrior_imperial_tasset" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Warrior Imperial Tasset (+1) ×1</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_boar" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Boar) ×3</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_tiger" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Tiger) ×3</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_bear" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Bear) ×2</span></div>
@@ -5322,7 +5283,7 @@ body.en .en-only{display:initial;}
               <div class="craft-output"><img src="" data-icon="enh_mage_elite_chest" style="width:32px;height:32px;object-fit:contain;border-radius:4px;" /><div class="craft-output-name">Enh. Mage Elite Chest Armor</div><div class="craft-output-qty">×1</div></div>
               <div class="craft-arrow">←</div>
               <div class="craft-inputs">
-                <div class="craft-input-row"><img src="" data-icon="enh_mage_elite_chest" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Mage Elite Chest Armor (+1) ×1</span></div>
+                <div class="craft-input-row"><img src="" data-icon="base_mage_elite_chest" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Mage Elite Chest Armor (+1) ×1</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_tiger" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Tiger) ×4</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_bear" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Bear) ×3</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_elephant" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Elephant) ×1</span></div>
@@ -5335,7 +5296,7 @@ body.en .en-only{display:initial;}
               <div class="craft-output"><img src="" data-icon="enh_priest_elite_chest" style="width:32px;height:32px;object-fit:contain;border-radius:4px;" /><div class="craft-output-name">Enh. Priest Elite Chestplate</div><div class="craft-output-qty">×1</div></div>
               <div class="craft-arrow">←</div>
               <div class="craft-inputs">
-                <div class="craft-input-row"><img src="" data-icon="enh_priest_elite_chest" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Priest Elite Chestplate (+1) ×1</span></div>
+                <div class="craft-input-row"><img src="" data-icon="base_priest_elite_chest" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Priest Elite Chestplate (+1) ×1</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_tiger" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Tiger) ×4</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_bear" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Bear) ×3</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_elephant" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Elephant) ×1</span></div>
@@ -5348,7 +5309,7 @@ body.en .en-only{display:initial;}
               <div class="craft-output"><img src="" data-icon="enh_rogue_elite_chest" style="width:32px;height:32px;object-fit:contain;border-radius:4px;" /><div class="craft-output-name">Enh. Rogue Elite Chestplate</div><div class="craft-output-qty">×1</div></div>
               <div class="craft-arrow">←</div>
               <div class="craft-inputs">
-                <div class="craft-input-row"><img src="" data-icon="enh_rogue_elite_chest" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Rogue Elite Chestplate (+1) ×1</span></div>
+                <div class="craft-input-row"><img src="" data-icon="base_rogue_elite_chest" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Rogue Elite Chestplate (+1) ×1</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_tiger" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Tiger) ×4</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_bear" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Bear) ×3</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_elephant" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Elephant) ×1</span></div>
@@ -5361,7 +5322,7 @@ body.en .en-only{display:initial;}
               <div class="craft-output"><img src="" data-icon="enh_warrior_elite_chest" style="width:32px;height:32px;object-fit:contain;border-radius:4px;" /><div class="craft-output-name">Enh. Warrior Elite Chestplate</div><div class="craft-output-qty">×1</div></div>
               <div class="craft-arrow">←</div>
               <div class="craft-inputs">
-                <div class="craft-input-row"><img src="" data-icon="enh_warrior_elite_chest" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Warrior Elite Chestplate (+1) ×1</span></div>
+                <div class="craft-input-row"><img src="" data-icon="base_warrior_elite_chest" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Warrior Elite Chestplate (+1) ×1</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_tiger" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Tiger) ×4</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_bear" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Bear) ×3</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_elephant" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Elephant) ×1</span></div>
@@ -5381,7 +5342,7 @@ body.en .en-only{display:initial;}
               <div class="craft-output"><img src="" data-icon="enh_mage_imperial_chest" style="width:32px;height:32px;object-fit:contain;border-radius:4px;" /><div class="craft-output-name">Enh. Mage Imperial Chest Armor</div><div class="craft-output-qty">×1</div></div>
               <div class="craft-arrow">←</div>
               <div class="craft-inputs">
-                <div class="craft-input-row"><img src="" data-icon="enh_mage_imperial_chest" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Mage Imperial Chest Armor (+1) ×1</span></div>
+                <div class="craft-input-row"><img src="" data-icon="base_mage_imperial_chest" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Mage Imperial Chest Armor (+1) ×1</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_tiger" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Tiger) ×4</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_bear" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Bear) ×4</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_elephant" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Elephant) ×1</span></div>
@@ -5394,7 +5355,7 @@ body.en .en-only{display:initial;}
               <div class="craft-output"><img src="" data-icon="enh_priest_imperial_chest" style="width:32px;height:32px;object-fit:contain;border-radius:4px;" /><div class="craft-output-name">Enh. Priest Imperial Chestplate</div><div class="craft-output-qty">×1</div></div>
               <div class="craft-arrow">←</div>
               <div class="craft-inputs">
-                <div class="craft-input-row"><img src="" data-icon="enh_priest_imperial_chest" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Priest Imperial Chestplate (+1) ×1</span></div>
+                <div class="craft-input-row"><img src="" data-icon="base_priest_imperial_chest" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Priest Imperial Chestplate (+1) ×1</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_tiger" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Tiger) ×4</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_bear" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Bear) ×4</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_elephant" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Elephant) ×1</span></div>
@@ -5407,7 +5368,7 @@ body.en .en-only{display:initial;}
               <div class="craft-output"><img src="" data-icon="enh_rogue_imperial_chest" style="width:32px;height:32px;object-fit:contain;border-radius:4px;" /><div class="craft-output-name">Enh. Rogue Imperial Chestplate</div><div class="craft-output-qty">×1</div></div>
               <div class="craft-arrow">←</div>
               <div class="craft-inputs">
-                <div class="craft-input-row"><img src="" data-icon="enh_rogue_imperial_chest" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Rogue Imperial Chestplate (+1) ×1</span></div>
+                <div class="craft-input-row"><img src="" data-icon="base_rogue_imperial_chest" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Rogue Imperial Chestplate (+1) ×1</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_tiger" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Tiger) ×4</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_bear" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Bear) ×4</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_elephant" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Elephant) ×1</span></div>
@@ -5420,7 +5381,7 @@ body.en .en-only{display:initial;}
               <div class="craft-output"><img src="" data-icon="enh_warrior_imperial_chest" style="width:32px;height:32px;object-fit:contain;border-radius:4px;" /><div class="craft-output-name">Enh. Warrior Imperial Chestplate</div><div class="craft-output-qty">×1</div></div>
               <div class="craft-arrow">←</div>
               <div class="craft-inputs">
-                <div class="craft-input-row"><img src="" data-icon="enh_warrior_imperial_chest" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Warrior Imperial Chestplate (+1) ×1</span></div>
+                <div class="craft-input-row"><img src="" data-icon="base_warrior_imperial_chest" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Warrior Imperial Chestplate (+1) ×1</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_tiger" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Tiger) ×4</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_bear" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Bear) ×4</span></div>
                 <div class="craft-input-row"><img src="" data-icon="tanned_leather_elephant" style="width:28px;height:28px;object-fit:contain;border-radius:4px;" /><span>Tanned Leather (Elephant) ×1</span></div>
