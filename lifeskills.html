@@ -62,7 +62,9 @@ nav a.active{color:var(--acc);background:var(--card);}
 
 /* İçerik */
 .content{min-width:0;padding:0 48px 0 32px;}
-.guide-section{margin-bottom:56px;scroll-margin-top:90px;display:flex;flex-direction:column;}
+.guide-section{margin-bottom:56px;scroll-margin-top:90px;display:block;overflow:hidden;}
+#panel-crafting,#panel-gathering{display:block;width:100%;}
+#panel-crafting .guide-section,#panel-gathering .guide-section{display:block;width:100%;}
 .guide-section-header{display:flex;align-items:center;gap:14px;margin-bottom:24px;padding-bottom:16px;border-bottom:2px solid var(--brd);}
 .guide-section-icon{font-size:32px;}
 .guide-section-title{font-family:'Nunito',sans-serif;font-weight:900;font-size:26px;color:var(--t1);}
@@ -187,9 +189,9 @@ body.en .tr-only{display:none;}
 body.en .en-only{display:initial;}
 
 /* Craft kartları */
-.craft-level-group{margin-bottom:28px;width:100%;display:block;}
+.craft-level-group{margin-bottom:28px;width:100%;display:block;overflow:hidden;box-sizing:border-box;clear:both;}
 .craft-level-badge{display:inline-flex;align-items:center;gap:8px;background:var(--card2);border:2px solid var(--brd2);border-radius:20px;padding:6px 18px;font-size:13px;font-weight:900;color:var(--acc);margin-bottom:14px;letter-spacing:.3px;}
-.craft-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;}
+.craft-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;width:100%;box-sizing:border-box;}
 .craft-card{background:var(--card);border:2px solid var(--brd);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;gap:0;}
 .craft-card:hover{border-color:var(--brd2);}
 .craft-output{display:flex;align-items:center;gap:10px;padding:12px 14px;background:var(--card2);border-bottom:2px solid var(--brd);}
@@ -6212,6 +6214,8 @@ body.en .en-only{display:initial;}
               </div>
               <div class="craft-meta"><div class="craft-meta-item">⭐ <span>12,800 XP</span></div><div class="craft-meta-item">⏱ <span>30sn</span></div><div class="craft-meta-item">🪙 <span>20K Coin</span></div><div class="craft-meta-item">🔄 <span>CD: 20dk</span></div></div>
             </div>
+          </div>
+        </div>
 
         <div class="section-divider">🪓 Enhanced Epic Tools (Lv.26) — Firefly Lumber</div>
 
